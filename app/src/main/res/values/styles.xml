@@ -1,0 +1,26 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!--<item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>-->
+        <item name="android:windowFullscreen">false</item>
+        <!--&lt;!&ndash; 关闭ActionBar &ndash;&gt;-->
+        <item name="windowActionBar">false</item>
+        <!--&lt;!&ndash; 隐藏title &ndash;&gt;-->
+        <item name="windowNoTitle">true</item>
+        <!--&lt;!&ndash; 窗口背景颜色 &ndash;&gt;-->
+        <!--<item name="android:windowBackground">@android:color/white</item>-->
+    </style>
+
+
+    <style name="ToolBarTitleTextStyle" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textSize">@dimen/font_big_20</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="ToolBarSubTitleTextStyle" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textSize">@dimen/font_large_16</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>

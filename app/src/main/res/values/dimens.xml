@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- font sizes -->
+    <dimen name="font_huge_24">24sp</dimen>
+    <dimen name="font_bigger_22">22sp</dimen>
+    <dimen name="font_big_20">20sp</dimen>
+    <dimen name="font_larger_18">18sp</dimen>
+    <dimen name="font_large_16">16sp</dimen>
+    <dimen name="font_normal_14">14sp</dimen>
+    <dimen name="font_small_12">12sp</dimen>
+    <dimen name="font_tiny_10">10sp</dimen>
+
+    <dimen name="dim_5dp">5dp</dimen>
+    <dimen name="dim_8dp">8dp</dimen>
+    <dimen name="dim_10dp">10dp</dimen>
+    <dimen name="dim_50dp">50dp</dimen>
+    <dimen name="dim_circular_8dp">8dp</dimen>
+    <dimen name="dim_circular_5dp">8dp</dimen>
+
+
+    <!-- 全局  行高 - 左右边距 - 行距 -->
+    <dimen name="two_row_height">64dp</dimen>
+    <dimen name="row_height">50dp</dimen>
+    <dimen name="margin_left">16dp</dimen>
+    <dimen name="margin_right">16dp</dimen>
+    <dimen name="margin_right_large">30dp</dimen>
+    <dimen name="row_height_space">10dp</dimen>
+
+    <!--TextView缩进-->
+    <dimen name="padding_text">5dp</dimen>
+    <!--EditView缩进-->
+    <dimen name="padding_edit">5dp</dimen>
+    <!--距离上方-->
+    <dimen name="height_top">10dp</dimen>
+
+    <!--标题栏高度-->
+    <dimen name="title_height">70sp</dimen>
+    <!--Itme高度-->
+    <dimen name="height_list_item">80dp</dimen>
+    <!--edt字体大小-->
+    <dimen name="text_edt_hint">@dimen/font_large_16</dimen>
+
+    <!--文字大小-->
+    <dimen name="text_title_size">@dimen/font_big_20</dimen>
+    <dimen name="text_title_lable">@dimen/font_larger_18</dimen>
+    <dimen name="text_lable_size_large">@dimen/font_big_20</dimen>
+    <dimen name="text_lable_size_n">@dimen/font_larger_18</dimen>
+    <dimen name="text_lable_size">@dimen/font_large_16</dimen>
+    <dimen name="text_theme_size">@dimen/font_large_16</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+
+</resources>
