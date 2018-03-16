@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.qihoo360.replugin.RePlugin;
 import com.qihoo360.replugin.model.PluginInfo;
 import com.rlzz.wms.common.base.BaseActivity;
+import com.rlzz.wms.core.RlPlugin;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -73,7 +74,7 @@ public class MainActivity extends BaseActivity {
 
 //        Intent intent = new Intent();
 //        intent.setComponent(new ComponentName("com.rlzz.receivemanagement","com.rlzz.receivemanagement.MainActivity"));
-        RePlugin.startActivity(this, receiveManagement);
+        RlPlugin.startActivity(this, receiveManagement);
     }
 
     @OnClick(R.id.button3)
@@ -84,7 +85,7 @@ public class MainActivity extends BaseActivity {
         Observable.fromArray(objects).observeOn(Schedulers.newThread()).subscribeOn(Schedulers.newThread()).subscribe(new Consumer<Object>() {
             @Override
             public void accept(Object pluginInfo) throws Exception {
-                RePlugin.uninstall(((PluginInfo)pluginInfo).getName());
+                RlPlugin.uninstall(((PluginInfo) pluginInfo).getName());
             }
         });
 
@@ -98,7 +99,7 @@ public class MainActivity extends BaseActivity {
             String bundleName = externalBundles.get(i).substring(0, externalBundles.get(i).indexOf("."));
             if (!RePlugin.isPluginInstalled(bundleName)) {
                 copyAssetsFileToAppFiles("external" + File.separator + externalBundles.get(i), externalBundles.get(i));
-                PluginInfo bundleInfo = RePlugin.install(pluginFilePath + externalBundles.get(i));
+                PluginInfo bundleInfo = RlPlugin.install(pluginFilePath + externalBundles.get(i));
                 text.append("安装成功：" + bundleInfo.getName() + "\n");
                 Log.d("monty", bundleInfo.toString());
             }

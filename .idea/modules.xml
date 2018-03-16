@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/receivemanagement/receivemanagement.iml" filepath="$PROJECT_DIR$/receivemanagement/receivemanagement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/replugin-host-lib/replugin-host-lib.iml" filepath="$PROJECT_DIR$/replugin-host-lib/replugin-host-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/wmsnew.iml" filepath="$PROJECT_DIR$/wmsnew.iml" />
     </modules>
   </component>

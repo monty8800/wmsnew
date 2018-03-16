@@ -86,7 +86,8 @@ dependencies {
     /*BRVAH是一个强大的RecyclerAdapter框架*/
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.35'
     /*RePlugin宿主依赖*/
-    implementation 'com.qihoo360.replugin:replugin-host-lib:2.2.4'
+//    implementation 'com.qihoo360.replugin:replugin-host-lib:2.2.4'
+    implementation project(':replugin-host-lib')
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
