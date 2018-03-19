@@ -1,4 +1,4 @@
-package com.rlzz.wms.net.exception;
+package com.rlzz.library.net.exception;
 
 /**
  * api接口错误/异常统一处理类

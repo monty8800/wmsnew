@@ -30,6 +30,19 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
     compileOnly "com.android.support:support-annotations:$rootProject.ext.supportVersion"
     compileOnly "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
+
+    compileOnly "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    compileOnly "com.squareup.retrofit2:converter-gson:$rootProject.ext.converterGsonVersion"
+    compileOnly "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.adapterRxjava2Version"
+    compileOnly "com.squareup.retrofit2:converter-scalars:$rootProject.ext.converterScalarsVersion"
+    compileOnly "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttpVersion"
+    compileOnly "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.loggingInterceptorVersion"
+    compileOnly "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
+    compileOnly "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
+
+    /*日志记录*/
+    implementation 'com.orhanobut:logger:2.1.1'
 }

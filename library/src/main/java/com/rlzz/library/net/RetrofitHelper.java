@@ -1,15 +1,14 @@
-package com.rlzz.wms.net;
+package com.rlzz.library.net;
 
 import android.util.ArrayMap;
 import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.rlzz.wms.Config;
-import com.rlzz.wms.net.interceptor.RequestInterceptor;
-import com.rlzz.wms.net.interceptor.ResultInterceptor;
-import com.rlzz.wms.utils.JsonUtil;
-import com.rlzz.wms.utils.LogUtil;
+import com.rlzz.library.net.interceptor.RequestInterceptor;
+import com.rlzz.library.net.interceptor.ResultInterceptor;
+import com.rlzz.library.net.utils.JsonUtil;
+import com.rlzz.library.net.utils.LogUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -32,6 +31,8 @@ public class RetrofitHelper {
     public final static int READ_TIMEOUT = 30;
     public final static int WRITE_TIMEOUT = 30;
 
+    public final static String SERVER_HOST_PRO = "";
+
     private ArrayMap<String, Object> services = new ArrayMap<>();
 
     private Retrofit retrofit;
@@ -46,7 +47,7 @@ public class RetrofitHelper {
 
     private RetrofitHelper() {
         Log.d("monty", "RetrofitHelper ################### init");
-        retrofit = createRetrofit(Config.SERVER_HOST_PRO);
+        retrofit = createRetrofit(SERVER_HOST_PRO);
     }
 
     public Retrofit createRetrofit(String baseUrl) {

@@ -1,7 +1,8 @@
-package com.rlzz.wms.net.interceptor;
+package com.rlzz.library.net.interceptor;
 
-import com.rlzz.wms.Config;
-import com.rlzz.wms.utils.DeviceUtil;
+
+import com.rlzz.library.net.RetrofitHelper;
+import com.rlzz.library.net.utils.DeviceUtil;
 
 import java.io.IOException;
 
@@ -36,7 +37,7 @@ public class RequestInterceptor implements Interceptor {
                 .addHeader("x-access-token", "");
 
         HttpUrl url = chain.request().url();
-        HttpUrl globalHost = HttpUrl.parse(Config.SERVER_HOST_PRO);
+        HttpUrl globalHost = HttpUrl.parse(RetrofitHelper.SERVER_HOST_PRO);
 
         /**
          * 此处判断是否开发包，由于开发环境服务端有多个地址，其中业务模块的地址需要拦截换成后台开发人员本地地址（拦截策略：拦截地址中带有"qc"的地址就认为是业务模块地址），

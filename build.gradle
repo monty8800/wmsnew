@@ -40,6 +40,15 @@ ext {
     compileSdkVersion = 26
 
     glideVersion = '3.7.0'
+    converterGsonVersion = '2.3.0'
+    adapterRxjava2Version = '2.3.0'
+    converterScalarsVersion = '2.3.0'
+    okhttpVersion = '3.10.0'
+    loggingInterceptorVersion = '3.10.0'
+    rxjavaVersion = '2.1.10'
+    rxandroidVersion = '2.0.2'
+    retrofitVersion = '2.3.0'
+
 //    eventbusVersion = '3.0.0'
 //    fastjsonVersion = '1.1.56.android'
 //    okhttpVersion = '3.6.0'

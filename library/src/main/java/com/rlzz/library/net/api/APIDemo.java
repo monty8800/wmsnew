@@ -1,6 +1,6 @@
-package com.rlzz.wms.net.api;
+package com.rlzz.library.net.api;
 
-import com.rlzz.wms.net.bean.ResultModel;
+import com.rlzz.library.net.bean.ResultModel;
 
 import org.json.JSONObject;
 

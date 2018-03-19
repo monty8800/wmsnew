@@ -1,4 +1,4 @@
-package com.rlzz.wms.net.exception;
+package com.rlzz.library.net.exception;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -7,7 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.google.gson.stream.MalformedJsonException;
-import com.rlzz.wms.utils.JsonUtil;
+import com.rlzz.library.net.utils.JsonUtil;
 
 import org.json.JSONException;
 

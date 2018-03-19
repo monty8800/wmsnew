@@ -1,13 +1,13 @@
-package com.rlzz.wms.net.base;
+package com.rlzz.library.net.base;
 
 import android.util.Log;
 
-import com.rlzz.wms.App;
-import com.rlzz.wms.R;
-import com.rlzz.wms.net.bean.ResultModel;
-import com.rlzz.wms.net.exception.ResponseException;
-import com.rlzz.wms.utils.NetWork;
-import com.rlzz.wms.utils.ToastUtil;
+import com.rlzz.library.R;
+import com.rlzz.library.RLApplication;
+import com.rlzz.library.net.bean.ResultModel;
+import com.rlzz.library.net.exception.ResponseException;
+import com.rlzz.library.net.utils.NetWork;
+import com.rlzz.library.net.utils.ToastUtil;
 
 import io.reactivex.observers.ResourceObserver;
 
@@ -24,7 +24,7 @@ public abstract class BaseObserver<T> extends ResourceObserver<ResultModel<T>> {
 
     @Override
     public void onNext(ResultModel<T> value) {
-        if (!NetWork.isConnected(App.getInstance())) {
+        if (!NetWork.isConnected(RLApplication.getInstance())) {
             ToastUtil.show(R.string.toast_network_error);
             onFinish();
             return;

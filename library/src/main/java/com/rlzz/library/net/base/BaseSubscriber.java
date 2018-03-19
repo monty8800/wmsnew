@@ -1,13 +1,13 @@
-package com.rlzz.wms.net.base;
+package com.rlzz.library.net.base;
 
 import android.util.Log;
 
-import com.rlzz.wms.App;
-import com.rlzz.wms.R;
-import com.rlzz.wms.net.bean.ResultModel;
-import com.rlzz.wms.net.exception.ResponseException;
-import com.rlzz.wms.utils.NetWork;
-import com.rlzz.wms.utils.ToastUtil;
+import com.rlzz.library.R;
+import com.rlzz.library.RLApplication;
+import com.rlzz.library.net.bean.ResultModel;
+import com.rlzz.library.net.exception.ResponseException;
+import com.rlzz.library.net.utils.NetWork;
+import com.rlzz.library.net.utils.ToastUtil;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
@@ -26,7 +26,7 @@ public abstract class BaseSubscriber<T> implements Subscriber<ResultModel<T>> {
     @Override
     public void onSubscribe(Subscription s) {
         Log.d(TAG, "onSubscribe");
-        if (!NetWork.isConnected(App.getInstance())) {
+        if (!NetWork.isConnected(RLApplication.getInstance())) {
             s.cancel();
             ToastUtil.show(R.string.toast_network_error);
             onFinish();

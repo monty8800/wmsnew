@@ -1,4 +1,4 @@
-package com.rlzz.wms.net.exception;
+package com.rlzz.library.net.exception;
 
 /**
  * 自定义服务器错误

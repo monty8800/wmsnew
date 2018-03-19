@@ -1,4 +1,4 @@
-package com.rlzz.wms.net.bean;
+package com.rlzz.library.net.bean;
 
 /**
  * 基础数据模型

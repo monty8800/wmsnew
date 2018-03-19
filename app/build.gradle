@@ -58,17 +58,17 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
 //    implementation "com.android.support:animeted-vactor-drawable-v7:$rootProject.ext.supportVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
     implementation "com.android.support:design:$rootProject.ext.supportVersion"
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.10'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.converterGsonVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.adapterRxjava2Version"
+    implementation "com.squareup.retrofit2:converter-scalars:$rootProject.ext.converterScalarsVersion"
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.loggingInterceptorVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
     /*事件分发*/
     implementation 'org.greenrobot:eventbus:3.1.1'
     /*Butterknife*/
@@ -76,7 +76,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.google.code.gson:gson:2.8.2'
     /*日志记录*/
-    implementation 'com.orhanobut:logger:2.1.1'
+//    implementation 'com.orhanobut:logger:2.1.1'
     /*Glide图片加载*/
     implementation 'com.github.bumptech.glide:glide:4.6.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
