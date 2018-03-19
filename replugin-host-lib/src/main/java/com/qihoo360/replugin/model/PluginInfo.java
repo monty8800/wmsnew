@@ -20,8 +20,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.MatrixCursor;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
@@ -126,6 +128,8 @@ public class PluginInfo implements Serializable, Parcelable, Cloneable {
     // 通常当前这个Info会包裹在“mPendingUpdate/mPendingDelete/mPendingCover”内
     // 此信息【不会】做持久化工作。下次重启进程后会消失
     private PluginInfo mParentInfo;
+
+    private Drawable icon;
 
     private PluginInfo(JSONObject jo) {
         initPluginInfo(jo);
@@ -358,6 +362,22 @@ public class PluginInfo implements Serializable, Parcelable, Cloneable {
         return f.exists() && FileUtils.sizeOf(f) > 0;
     }
 
+    public Drawable getIcon() {
+        PackageInfo packageInfo = RePlugin.fetchPackageInfo(getAlias());
+        Context context = RePlugin.fetchContext(getAlias());
+        PackageManager packageManager = context.getPackageManager();
+        Drawable applicationIcon = packageManager.getApplicationIcon(packageInfo.applicationInfo);
+        return applicationIcon;
+    }
+
+    public CharSequence getAppLabel() {
+        PackageInfo packageInfo = RePlugin.fetchPackageInfo(getAlias());
+        Context context = RePlugin.fetchContext(getAlias());
+        PackageManager packageManager = context.getPackageManager();
+        CharSequence applicationLabel = packageManager.getApplicationLabel(packageInfo.applicationInfo);
+        return applicationLabel;
+    }
+
     /**
      * 获取APK存放的文件信息 <p>
      * 若为"纯APK"插件，则会位于app_p_a中；若为"p-n"插件，则会位于"app_plugins_v3"中 <p>
@@ -433,15 +453,16 @@ public class PluginInfo implements Serializable, Parcelable, Cloneable {
 
     /**
      * 获取Dex（优化后）生成时所在的目录 <p>
-     *
+     * <p>
      * Android O之前：
      * 若为"纯APK"插件，则会位于app_p_od中；若为"p-n"插件，则会位于"app_plugins_v3_odex"中 <p>
      * 若支持同版本覆盖安装的话，则会位于app_p_c中； <p>
-     *
+     * <p>
      * Android O：
      * APK存放目录/oat/{cpuType}
-     *
+     * <p>
      * 注意：仅供框架内部使用
+     *
      * @return 优化后Dex所在目录的File对象
      */
     public File getDexParentDir() {
@@ -464,13 +485,13 @@ public class PluginInfo implements Serializable, Parcelable, Cloneable {
 
     /**
      * 获取Dex（优化后）所在的文件信息 <p>
-     *
+     * <p>
      * Android O 之前：
      * 若为"纯APK"插件，则会位于app_p_od中；若为"p-n"插件，则会位于"app_plugins_v3_odex"中 <p>
-     *
+     * <p>
      * Android O：
      * APK存放目录/oat/{cpuType}/XXX.odex
-     *
+     * <p>
      * 注意：仅供框架内部使用
      *
      * @return 优化后Dex所在文件的File对象

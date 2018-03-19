@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +38,10 @@ public class MainActivity extends BaseActivity {
     Button button2;
     @BindView(R.id.button3)
     Button button3;
+    @BindView(R.id.button4)
+    Button button4;
+    @BindView(R.id.img)
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +97,12 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    @OnClick(R.id.button4)
+    public void onButton4Clicked() {
+        Fragment receiveManagement = RlPlugin.getFragment("ReceiveManagement", "com.rlzz.receivemanagement.BlankFragment");
+        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, receiveManagement).commit();
+    }
+
     private void initAllBundle() {
         List<String> externalBundles = getExternalBundles();
         String path = "external" + File.separator;
@@ -100,6 +112,9 @@ public class MainActivity extends BaseActivity {
             if (!RePlugin.isPluginInstalled(bundleName)) {
                 copyAssetsFileToAppFiles("external" + File.separator + externalBundles.get(i), externalBundles.get(i));
                 PluginInfo bundleInfo = RlPlugin.install(pluginFilePath + externalBundles.get(i));
+                RlPlugin.preload(bundleInfo);
+                img.setImageDrawable(bundleInfo.getIcon());
+                button4.setText(bundleInfo.getAppLabel());
                 text.append("安装成功：" + bundleInfo.getName() + "\n");
                 Log.d("monty", bundleInfo.toString());
             }

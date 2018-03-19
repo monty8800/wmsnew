@@ -178,6 +178,8 @@ public class RlPlugin {
         if (TextUtils.isEmpty(pluginName) || TextUtils.isEmpty(fragmentClass)) {
             return null;
         }
+        RePlugin.registerHookingClass(fragmentClass, RePlugin.createComponentName(pluginName, fragmentClass), null);
+
         //代码使用插件Fragment
         //获取插件的ClassLoader
         ClassLoader d1ClassLoader = RePlugin.fetchClassLoader(pluginName);
