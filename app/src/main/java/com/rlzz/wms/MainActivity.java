@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -62,7 +61,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public int getContentLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.activity_demo;
     }
 
     @OnClick(R.id.button)
@@ -99,8 +98,11 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.button4)
     public void onButton4Clicked() {
-        Fragment receiveManagement = RlPlugin.getFragment("ReceiveManagement", "com.rlzz.receivemanagement.BlankFragment");
-        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, receiveManagement).commit();
+//        Fragment receiveManagement = RlPlugin.getFragment("ReceiveManagement", "com.rlzz.receivemanagement.BlankFragment");
+//        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, receiveManagement).commit();
+        Intent intent = new Intent(this, com.rlzz.wms.ui.main.MainActivity.class);
+        startActivity(intent);
+
     }
 
     private void initAllBundle() {
