@@ -1,7 +1,12 @@
 package com.rlzz.wms;
 
-import com.qihoo360.replugin.RePluginApplication;
+import android.content.Context;
+import android.content.res.Configuration;
+
+import com.qihoo360.replugin.RePlugin;
+import com.qihoo360.replugin.RePluginCallbacks;
 import com.qihoo360.replugin.RePluginConfig;
+import com.rlzz.library.RLApplication;
 
 /**
  * @author monty
@@ -11,22 +16,52 @@ import com.qihoo360.replugin.RePluginConfig;
  * @org www.szrlzz.com 深圳市瑞联智造科技有限公司
  * @email mwu@szrlzz.com
  */
-public class App extends RePluginApplication {
-    private static App application;
+public class App extends RLApplication {
 
-    public static App getInstance() {
-        return application;
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        RePluginConfig c = createConfig();
+        if (c == null) {
+            c = new RePluginConfig();
+        }
+
+        RePluginCallbacks cb = createCallbacks();
+        if (cb != null) {
+            c.setCallbacks(cb);
+        }
+
+        RePlugin.App.attachBaseContext(this);
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        if (application == null) {
-            application = this;
-        }
+        RePlugin.App.onCreate();
     }
 
     @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        RePlugin.App.onLowMemory();
+    }
+
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        RePlugin.App.onTrimMemory(level);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration config) {
+        super.onConfigurationChanged(config);
+        RePlugin.App.onConfigurationChanged(config);
+    }
+
+    protected RePluginCallbacks createCallbacks() {
+        return null;
+    }
+
     protected RePluginConfig createConfig() {
 
         RePluginConfig c = new RePluginConfig();
