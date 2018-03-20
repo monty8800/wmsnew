@@ -3,12 +3,12 @@ package com.rlzz.wms.utils;
 import android.app.Activity;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.rlzz.wms.R;
@@ -182,14 +182,16 @@ public class ToolBarUtil {
             return;
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            if (toolbar.getLayoutParams() instanceof AppBarLayout.LayoutParams) {
-                AppBarLayout.LayoutParams params = (AppBarLayout.LayoutParams) toolbar.getLayoutParams();
-                params.topMargin = StatusBarUtil.getStatusBarHeight(toolbar.getContext());
+//            if (toolbar.getLayoutParams() instanceof AppBarLayout.LayoutParams) {
+                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) toolbar.getLayoutParams();
+                int statusBarHeight = StatusBarUtil.getStatusBarHeight(toolbar.getContext());
+//                params.topMargin = StatusBarUtil.getStatusBarHeight(toolbar.getContext());
+                toolbar.setPadding(toolbar.getPaddingLeft(),toolbar.getPaddingTop()+statusBarHeight,toolbar.getPaddingRight(),toolbar.getPaddingBottom());
                 toolbar.setLayoutParams(params);
 
-                hideNavigationBar((Activity) toolbar.getContext());
-            }
+//            }
         }
+
     }
 
     /**

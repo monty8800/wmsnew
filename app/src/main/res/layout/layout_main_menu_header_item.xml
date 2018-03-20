@@ -3,5 +3,7 @@
     android:id="@+id/tv_item_header"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/menu_item_bg"
     android:padding="@dimen/dim_5dp"
-    android:background="@drawable/menu_item_bg"/>
+    android:textColor="@android:color/black"
+    android:textSize="@dimen/font_larger_18" />

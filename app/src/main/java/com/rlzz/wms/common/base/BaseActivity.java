@@ -16,6 +16,7 @@ import com.rlzz.wms.R;
 import com.rlzz.wms.common.base.viewinterface.ILoading;
 import com.rlzz.wms.common.base.viewinterface.IView;
 import com.rlzz.wms.manager.ActivityStackManager;
+import com.rlzz.wms.utils.ToolBarUtil;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ import pub.devrel.easypermissions.EasyPermissions;
  * @date 2017/8/11
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks,IView, ILoading {
+public abstract class BaseActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks, IView, ILoading {
 
     public static final String TAG = BaseActivity.class.getSimpleName();
 
@@ -48,6 +49,13 @@ public abstract class BaseActivity extends AppCompatActivity implements EasyPerm
         setContentView(R.layout.activity_base);
         setupView(findViewById(R.id.container));
         ButterKnife.bind(this);
+        initToolBar();
+
+    }
+
+    protected void initToolBar() {
+        ToolBarUtil.setStatusBarColor(this,getResources().getColor(R.color.app_azure));
+        ToolBarUtil.setStatusBarFits(toolbar);
     }
 
     private void setupView(ViewGroup containerView) {
@@ -93,6 +101,7 @@ public abstract class BaseActivity extends AppCompatActivity implements EasyPerm
      * 处理权限请求结果
      * 请求权限使用：EasyPermissions.requestPermissions(this, "拍照需要摄像头权限",RC_CAMERA_AND_WIFI, perms);
      * 检查权限使用：EasyPermissions.hasPermissions(this, perms)
+     *
      * @param requestCode
      * @param permissions
      * @param grantResults
@@ -100,11 +109,12 @@ public abstract class BaseActivity extends AppCompatActivity implements EasyPerm
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        EasyPermissions.onRequestPermissionsResult(requestCode,permissions,grantResults,this);
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
 
     /**
      * 请求权限已被授权
+     *
      * @param requestCode
      * @param perms
      */
@@ -115,6 +125,7 @@ public abstract class BaseActivity extends AppCompatActivity implements EasyPerm
 
     /**
      * 请求权限授权被拒
+     *
      * @param requestCode
      * @param perms
      */

@@ -8,13 +8,13 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/app_dark_green">
+        android:layout_height="80dp"
+        android:background="@color/app_azure">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:orientation="vertical">
 
             <TextView
@@ -30,12 +30,12 @@
                 style="@style/ToolBarSubTitleTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:singleLine="true"
                 android:ellipsize="marquee"
+                android:gravity="center"
                 android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
                 android:visibility="gone"
-                tools:text="标题" />
+                tools:text="标题asdf" />
         </LinearLayout>
 
     </android.support.v7.widget.Toolbar>

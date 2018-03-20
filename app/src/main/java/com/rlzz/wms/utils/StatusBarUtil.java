@@ -57,9 +57,9 @@ public class StatusBarUtil {
             //添加flag来设置状态栏颜色
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             activity.getWindow().setStatusBarColor(color);//设置状态栏颜色
-            if (NavigationBarUtil.hasNavigationBar(activity)) {//若有虚拟按键
+            /*if (NavigationBarUtil.hasNavigationBar(activity)) {//若有虚拟按键
                 activity.getWindow().setNavigationBarColor(color);//设置虚拟按键颜色
-            }
+            }*/
         } else {//处理4.4
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
