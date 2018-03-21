@@ -3,4 +3,23 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!--入库主界面的背景颜色-->
+    <color name="main_bg">#F9F9F9</color>
+    <color name="main_header_bg">#ffffff</color>
+    <color name="main_header">#333333</color>
+    <color name="main_body">#666666</color>
+    <color name="tips_bg">#ff0000</color>
+
+    <color name="white">#ffffff</color>
+    <color name="title_bg">#03A9F5</color>
+    <!--黛绿色 通常用于导航-->
+    <color name="app_dark_green">#393D49</color>
+
+    <!--字体颜色-->
+    <color name="dark_gray">#999999</color>
+
+    <color name="tip_green">#00ff00</color>
+
+    <color name="rest_time">#ff0000</color>
 </resources>

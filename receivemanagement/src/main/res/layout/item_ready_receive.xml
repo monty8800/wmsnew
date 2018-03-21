@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_12dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_rowNum"
+                android:layout_width="@dimen/dimens_30dp"
+                android:layout_height="@dimen/dimens_20dp"
+                android:layout_marginLeft="@dimen/dimens_4dp"
+                android:background="@color/title_bg"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/white"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/tv_srcDocNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimens_4dp"
+                android:layout_toRightOf="@id/tv_rowNum"
+                android:text="22"
+                android:textColor="@color/title_bg"
+                android:textSize="@dimen/dimens_20sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_srcDocNoNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_srcDocNo"
+                android:textColor="@color/title_bg"
+                android:text=""
+                android:textSize="@dimen/dimens_20sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_docDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="2222"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/dimens_14sp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimens_4dp"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_6dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_department"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimens_38dp"
+                android:text="111"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/dimens_14sp"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/tv_maker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="222"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/dimens_14sp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimens_4dp"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_6dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_businessType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimens_38dp"
+                android:text="22"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/dimens_14sp"
+                android:layout_centerVertical="true"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerInParent="true"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/user"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="张三"
+                    android:textColor="@color/title_bg"
+                    android:textSize="@dimen/dimens_14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_unHandleTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="2018"
+                android:textColor="@color/rest_time"
+                android:textSize="@dimen/dimens_14sp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimens_4dp"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_remark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_6dp"
+            >
+
+            <ImageView
+                android:id="@+id/tv_remarkTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/remark_tip"
+                android:layout_marginLeft="@dimen/dimens_24dp"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/tv_remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimens_4dp"
+                android:layout_toRightOf="@id/tv_remarkTip"
+                android:text="1222222"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/dimens_14sp"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
