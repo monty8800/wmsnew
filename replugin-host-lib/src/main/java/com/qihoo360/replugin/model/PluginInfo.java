@@ -213,6 +213,7 @@ public class PluginInfo implements Serializable, Parcelable, Cloneable {
         int high = 0;
         int ver = 0;
 
+        String mainActivity = null;
         Bundle metaData = ai.metaData;
 
         // 优先读取MetaData中的内容（如有），并覆盖上面的默认值
@@ -226,6 +227,8 @@ public class PluginInfo implements Serializable, Parcelable, Cloneable {
 
             // 获取插件的版本号。优先从metaData中读取，如无则使用插件的VersionCode
             ver = metaData.getInt("com.qihoo360.plugin.version.ver");
+
+            mainActivity = metaData.getString("com.qihoo360.plugin.activity.main");
 
         }
 
@@ -241,7 +244,7 @@ public class PluginInfo implements Serializable, Parcelable, Cloneable {
         }
 
         PluginInfo pli = new PluginInfo(pn, alias, low, high, ver, path, PluginInfo.TYPE_NOT_INSTALL);
-
+        pli.setMainActivity(mainActivity);
         // 获取插件的框架版本号
         pli.setFrameworkVersionByMeta(metaData);
 
@@ -291,6 +294,12 @@ public class PluginInfo implements Serializable, Parcelable, Cloneable {
      */
     public String getAlias() {
         return mJson.optString("ali");
+    }
+    /**
+     * 获取插件首页Activity
+     */
+    public String getMainActivity() {
+        return mJson.optString("mainActivity");
     }
 
     /**
@@ -761,6 +770,7 @@ public class PluginInfo implements Serializable, Parcelable, Cloneable {
         setType(info.getType());
         setPackageName(info.getPackageName());
         setAlias(info.getAlias());
+        setMainActivity(info.getMainActivity());
     }
 
     /**
@@ -796,6 +806,11 @@ public class PluginInfo implements Serializable, Parcelable, Cloneable {
     private void setAlias(String alias) {
         if (!TextUtils.equals(alias, getAlias())) {
             JSONHelper.putNoThrows(mJson, "ali", alias);
+        }
+    }
+    private void setMainActivity(String mainActivity) {
+        if (!TextUtils.equals(mainActivity, getMainActivity())) {
+            JSONHelper.putNoThrows(mJson, "mainActivity", mainActivity);
         }
     }
 
@@ -1125,6 +1140,7 @@ public class PluginInfo implements Serializable, Parcelable, Cloneable {
         intent.putExtra("low", getLowInterfaceApi());
         intent.putExtra("high", getHighInterfaceApi());
         intent.putExtra("ver", getVersion());
+        intent.putExtra("mainActivity",getMainActivity());
         intent.putExtra("type", getType());
         intent.putExtra("v5type", getV5Type());
         intent.putExtra("path", getPath());

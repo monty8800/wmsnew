@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 
+import com.rlzz.library.RLApplication;
 import com.rlzz.wms.App;
 
 
@@ -83,6 +84,10 @@ public class AppManager {
     /***重启整个APP*/
     public static void restartAPP(Context context) {
         restartAPP(context, 2000);
+    }
+
+    public static void exitApp(){
+        ActivityStackManager.getManager().exitApp(RLApplication.getInstance());
     }
 
 }

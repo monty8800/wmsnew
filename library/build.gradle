@@ -44,6 +44,8 @@ dependencies {
     compileOnly "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
     compileOnly "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
 
+    implementation 'com.github.GrenderG:Toasty:1.2.8'
+
     /*日志记录*/
     implementation 'com.orhanobut:logger:2.1.1'
 }

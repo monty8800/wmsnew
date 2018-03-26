@@ -31,7 +31,7 @@ public class RetrofitHelper {
     public final static int READ_TIMEOUT = 30;
     public final static int WRITE_TIMEOUT = 30;
 
-    public final static String SERVER_HOST_PRO = "";
+    public final static String SERVER_HOST_PRO = "http://www.baidu.com";
 
     private ArrayMap<String, Object> services = new ArrayMap<>();
 

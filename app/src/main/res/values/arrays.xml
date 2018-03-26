@@ -1,0 +1,7 @@
+<resources>
+    <string-array name="menu_group">
+        <item>收发货</item>
+        <item>库内</item>
+        <item>查询&amp;设置</item>
+    </string-array>
+</resources>

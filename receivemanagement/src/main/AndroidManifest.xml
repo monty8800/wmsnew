@@ -15,6 +15,17 @@
             android:name="com.qihoo360.plugin.name"
             android:value="ReceiveManagement" />
 
+        <!--菜单类别-->
+        <meta-data
+            android:name="com.qihoo360.plugin.menu.category"
+            android:value="0" />
+
+        <!--启动Activity-->
+        <meta-data
+            android:name="com.qihoo360.plugin.activity.main"
+            android:value="com.rlzz.receivemanagement.MainActivity" />
+
+
         <activity android:name=".MainActivity"
             android:exported="true"
             >

@@ -7,10 +7,15 @@
         <item name="windowActionBar">false</item>
         <!--&lt;!&ndash; 隐藏title &ndash;&gt;-->
         <item name="windowNoTitle">true</item>
+        <item name="colorAccent">@color/app_dark_blue</item>
         <!--&lt;!&ndash; 窗口背景颜色 &ndash;&gt;-->
         <!--<item name="android:windowBackground">@android:color/white</item>-->
     </style>
 
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 
     <style name="ToolBarTitleTextStyle" parent="android:Widget.Holo.Light.TextView">
         <item name="android:textSize">@dimen/font_big_20</item>

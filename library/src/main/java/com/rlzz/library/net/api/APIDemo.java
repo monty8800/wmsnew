@@ -2,8 +2,6 @@ package com.rlzz.library.net.api;
 
 import com.rlzz.library.net.bean.ResultModel;
 
-import org.json.JSONObject;
-
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -25,5 +23,5 @@ public interface APIDemo {
          * @return
          */
         @GET("/article/list/{page}/json")
-        Observable<ResultModel<JSONObject>> getBlog(@Path("page") int page);
+        Observable<ResultModel<String>> getBlog(@Path("page") int page);
 }

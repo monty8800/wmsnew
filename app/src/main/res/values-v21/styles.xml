@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!--<item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>-->
+        <item name="android:windowFullscreen">false</item>
+        <!--&lt;!&ndash; 关闭ActionBar &ndash;&gt;-->
+        <item name="windowActionBar">false</item>
+        <!--&lt;!&ndash; 隐藏title &ndash;&gt;-->
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/app_azure</item>
+        <item name="colorAccent">@color/app_dark_blue</item>
+        <!--&lt;!&ndash; 窗口背景颜色 &ndash;&gt;-->
+        <!--<item name="android:windowBackground">@android:color/white</item>-->
+    </style>
+</resources>

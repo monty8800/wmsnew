@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.qihoo360.replugin.RePlugin;
+import com.qihoo360.replugin.RePluginInternal;
 import com.qihoo360.replugin.model.PluginInfo;
 import com.qihoo360.replugin.packages.PluginRunningList;
 
@@ -26,7 +27,17 @@ import java.util.List;
 public class RlPlugin {
 
     /**
+     * 获取宿主Context
+     *
+     * @return
+     */
+    public static Context getHostApplicationContext() {
+        return RePluginInternal.getAppContext();
+    }
+
+    /**
      * 安装插件
+     *
      * @param path 插件绝对路径
      * @return
      */
@@ -36,6 +47,7 @@ public class RlPlugin {
 
     /**
      * 插件是否已安装
+     *
      * @param pluginName 插件名称
      * @return
      */
@@ -45,6 +57,7 @@ public class RlPlugin {
 
     /**
      * 插件是否正在运行
+     *
      * @param pluginName 插件名称
      * @return
      */
@@ -54,6 +67,7 @@ public class RlPlugin {
 
     /**
      * 卸载插件
+     *
      * @param pluginName 插件名称
      * @return
      */
@@ -63,6 +77,7 @@ public class RlPlugin {
 
     /**
      * 获取正在运行的插件列表
+     *
      * @return
      */
     public static PluginRunningList getRunningPlugins() {
@@ -71,6 +86,7 @@ public class RlPlugin {
 
     /**
      * 获取所有已经安装的插件
+     *
      * @return
      */
     public static List<PluginInfo> getPluginInfoList() {
@@ -79,6 +95,7 @@ public class RlPlugin {
 
     /**
      * 根据插件名称查找插件信息
+     *
      * @param pluginName 插件名称
      * @return
      */
@@ -88,6 +105,7 @@ public class RlPlugin {
 
     /**
      * 获取插件版本
+     *
      * @param pluginName
      * @return
      */
@@ -97,6 +115,7 @@ public class RlPlugin {
 
     /**
      * 判断插件是否使用过，只要释放过Dex、Native的，就认为是“使用过”的
+     *
      * @param pluginName
      * @return
      */
@@ -106,6 +125,7 @@ public class RlPlugin {
 
     /**
      * 预加载插件，此方法会立即释放优化后的Dex和Native库，但不会运行插件代码。
+     *
      * @param pi 要加载的插件信息
      * @return
      */
@@ -115,6 +135,7 @@ public class RlPlugin {
 
     /**
      * 预加载插件，此方法会立即释放优化后的Dex和Native库，担不回运行插件代码。
+     *
      * @param pluginName 要加载的插件名称
      * @return
      */
@@ -123,8 +144,22 @@ public class RlPlugin {
     }
 
     /**
+     * 启动一个插件
+     *
+     * @param context
+     * @param pluginName
+     * @return
+     */
+    public static boolean launchPlugin(Context context, String pluginName) {
+        PluginInfo pluginInfo = RePlugin.getPluginInfo(pluginName);
+        Intent intent = RePlugin.createIntent(pluginName, pluginInfo.getMainActivity());
+        return RePlugin.startActivity(context, intent);
+    }
+
+    /**
      * 开启一个插件的Activity
      * 其中Intent的ComponentName的Key应为插件名（而不是包名），可使用createIntent方法来创建Intent对象
+     *
      * @param context Context对象
      * @param intent  要打开Activity的Intent，其中ComponentName的Key必须为插件名
      * @return
@@ -135,6 +170,7 @@ public class RlPlugin {
 
     /**
      * 开启一个插件的Activity，无需调用createIntent或设置ComponentName来修改Intent
+     *
      * @param context    Context对象
      * @param intent     要打开Activity的Intent，其中ComponentName的Key必须为插件名
      * @param pluginName 插件名。稍后会填充到Intent中
@@ -147,6 +183,7 @@ public class RlPlugin {
 
     /**
      * 通过 forResult 方式启动一个插件的 Activity
+     *
      * @param activity    源 Activity
      * @param intent      要打开 Activity 的 Intent，其中 ComponentName 的 Key 必须为插件名
      * @param requestCode 请求码
@@ -158,6 +195,7 @@ public class RlPlugin {
 
     /**
      * 通过 forResult 方式启动一个插件的 Activity
+     *
      * @param activity    源 Activity
      * @param intent      要打开 Activity 的 Intent，其中 ComponentName 的 Key 必须为插件名
      * @param requestCode 请求码
@@ -170,6 +208,7 @@ public class RlPlugin {
 
     /**
      * 获取插件中的Fragment
+     *
      * @param pluginName    插件名称
      * @param fragmentClass 插件中的fragment
      * @return
@@ -199,8 +238,9 @@ public class RlPlugin {
 
     /**
      * 获取插件中的View
-     * @param pluginName    插件名称
-     * @param viewClass     插件中的view
+     *
+     * @param pluginName 插件名称
+     * @param viewClass  插件中的view
      * @return
      */
     public static View getView(String pluginName, String viewClass) {

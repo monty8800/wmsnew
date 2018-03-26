@@ -28,7 +28,7 @@ import io.reactivex.Observable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivity extends BaseActivity {
+public class TestActivity extends BaseActivity {
     @BindView(R.id.button)
     Button button;
     @BindView(R.id.text)
@@ -41,6 +41,11 @@ public class MainActivity extends BaseActivity {
     Button button4;
     @BindView(R.id.img)
     ImageView img;
+
+    public static void GoToActivity(Context context){
+        Intent intent = new Intent(context,TestActivity.class);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,13 +77,12 @@ public class MainActivity extends BaseActivity {
 
     }
 
-
     @OnClick(R.id.button2)
     public void onButton2Clicked() {
         Intent receiveManagement = RePlugin.createIntent("ReceiveManagement", "com.rlzz.receivemanagement.MainActivity");
 
 //        Intent intent = new Intent();
-//        intent.setComponent(new ComponentName("com.rlzz.receivemanagement","com.rlzz.receivemanagement.MainActivity"));
+//        intent.setComponent(new ComponentName("com.rlzz.receivemanagement","com.rlzz.receivemanagement.TestActivity"));
         RlPlugin.startActivity(this, receiveManagement);
     }
 
@@ -100,8 +104,8 @@ public class MainActivity extends BaseActivity {
     public void onButton4Clicked() {
 //        Fragment receiveManagement = RlPlugin.getFragment("ReceiveManagement", "com.rlzz.receivemanagement.BlankFragment");
 //        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, receiveManagement).commit();
-        Intent intent = new Intent(this, com.rlzz.wms.ui.main.MainActivity.class);
-        startActivity(intent);
+        /*Intent intent = new Intent(this, com.rlzz.wms.ui.main.MainActivity.class);
+        startActivity(intent);*/
 
     }
 
@@ -116,7 +120,6 @@ public class MainActivity extends BaseActivity {
                 PluginInfo bundleInfo = RlPlugin.install(pluginFilePath + externalBundles.get(i));
                 RlPlugin.preload(bundleInfo);
                 img.setImageDrawable(bundleInfo.getIcon());
-                button4.setText(bundleInfo.getAppLabel());
                 text.append("安装成功：" + bundleInfo.getName() + "\n");
                 Log.d("monty", bundleInfo.toString());
             }
@@ -174,6 +177,4 @@ public class MainActivity extends BaseActivity {
             }
         }
     }
-
-
 }
