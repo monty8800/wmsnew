@@ -20,7 +20,7 @@ public interface LoginContract {
     }
 
     abstract class AbsPresenter extends Presenter<View> {
-        abstract void login(String account, String password);
+        abstract void login(String account, String password, boolean isRememberPwd);
     }
 
     interface Model {

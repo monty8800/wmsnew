@@ -20,5 +20,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="login_server_setting">首次登录?服务器设置</string>
 
 </resources>

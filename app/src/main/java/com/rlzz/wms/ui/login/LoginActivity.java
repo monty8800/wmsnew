@@ -4,7 +4,12 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -48,10 +53,6 @@ public class LoginActivity extends MVPActivity<LoginContract.AbsPresenter> {
     Button btnLogin;
     @BindView(R.id.tv_serverSetting)
     TextView tvServerSetting;
-    /*@BindView(R.id.btn_clearPwd)
-    ImageButton btnClearPwd;
-    @BindView(R.id.btn_showPwd)
-    CheckBox btnShowPwd;*/
 
     @Override
     protected LoginContract.AbsPresenter createPresenter() {
@@ -60,14 +61,38 @@ public class LoginActivity extends MVPActivity<LoginContract.AbsPresenter> {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         toolbar.setVisibility(View.GONE);
 
+        setDateInitialValue();
+
+        setServerSetting();
+
+    }
+
+    private void setDateInitialValue() {
         Date time = Calendar.getInstance().getTime();
         String format = new SimpleDateFormat("yyyy-MM-dd").format(time);
         etDate.setText(format);
+    }
 
+    private void setServerSetting() {
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append(getString(R.string.login_server_setting));
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+                ToastUtil.normal(LoginActivity.this, "进入服务器设置");
+            }
+        };
+        spannableStringBuilder.setSpan(clickableSpan, 8, 10, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(getResources().getColor(R.color.app_azure));
+        spannableStringBuilder.setSpan(foregroundColorSpan, 8, 10, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        tvServerSetting.setText(spannableStringBuilder);
+        tvServerSetting.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     @Override
@@ -78,14 +103,6 @@ public class LoginActivity extends MVPActivity<LoginContract.AbsPresenter> {
     @Override
     public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
         ToastUtil.warning(this, "权限申请失败");
-    }
-
-    private boolean isEmailValid(String email) {
-        return email.contains("@");
-    }
-
-    private boolean isPasswordValid(String password) {
-        return password.length() > 4;
     }
 
     @Override
@@ -103,16 +120,7 @@ public class LoginActivity extends MVPActivity<LoginContract.AbsPresenter> {
         });
     }
 
-    @OnClick(R.id.btn_login)
-    public void onBtnLoginClicked() {
-        if (checkAccountValid() && checkPassWordValid()) {
-            String account = etAccount.getText().toString();
-            String password = etPassword.getText().toString();
-            mPresenter.login(account, password);
-        }
-    }
-
-    private boolean checkPassWordValid() {
+    private boolean isPassWordValid() {
         String password = etPassword.getText().toString();
         if (TextUtils.isEmpty(password)) {
             ToastUtil.error(this, "密码不允许为空");
@@ -127,7 +135,7 @@ public class LoginActivity extends MVPActivity<LoginContract.AbsPresenter> {
         }
     }
 
-    private boolean checkAccountValid() {
+    private boolean isAccountValid() {
         String account = etAccount.getText().toString();
         if (TextUtils.isEmpty(account)) {
             ToastUtil.error(this, "用户名不允许为空");
@@ -142,28 +150,19 @@ public class LoginActivity extends MVPActivity<LoginContract.AbsPresenter> {
         }
     }
 
+    @OnClick(R.id.btn_login)
+    public void onBtnLoginClicked() {
+        if (isAccountValid() && isPassWordValid()) {
+            String account = etAccount.getText().toString();
+            String password = etPassword.getText().toString();
+            boolean isRememberPwd = cbRememberPwd.isChecked();
+            mPresenter.login(account, password, isRememberPwd);
+        }
+    }
+
     @OnClick(R.id.tv_serverSetting)
     public void onTvServerSettingClicked() {
 
     }
-
-   /* @OnCheckedChanged(R.id.btn_showPwd)
-    public void onBtnShowPwdClicked(boolean checked) {
-        if (checked) {
-            etPassword.setInputType(EditorInfo.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-        } else {
-            etPassword.setInputType(InputType.TYPE_CLASS_TEXT | EditorInfo.TYPE_TEXT_VARIATION_PASSWORD);
-        }
-        etPassword.setSelection(etPassword.getText().length());
-    }
-
-    @OnClick({R.id.btn_clearPwd})
-    public void onBtnClearPwdClicked() {
-        etPassword.getText().clear();
-        if (!etPassword.hasFocus()) {
-            etPassword.requestFocus();
-            ((View)etPassword.getParent()).requestFocus();
-        }
-    }*/
 }
 

@@ -21,7 +21,7 @@ public class LoginPresenter extends LoginContract.AbsPresenter {
     }
 
     @Override
-    void login(String account, String password) {
+    void login(String account, String password,boolean isRememberPwd) {
         addSubscribe(model.login(account,password).compose(RxSchedulers.compose()).subscribeWith(new BaseObserver<String>() {
             @Override
             protected void onSuccess(String s) {
