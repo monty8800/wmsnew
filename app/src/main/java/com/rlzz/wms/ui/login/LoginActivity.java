@@ -1,6 +1,8 @@
 package com.rlzz.wms.ui.login;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
@@ -21,6 +23,7 @@ import android.widget.TextView;
 import com.rlzz.library.utils.ToastUtil;
 import com.rlzz.wms.R;
 import com.rlzz.wms.common.base.MVPActivity;
+import com.rlzz.wms.ui.main.MainActivity;
 import com.rlzz.wms.utils.DatePickerUtil;
 
 import java.text.SimpleDateFormat;
@@ -53,14 +56,16 @@ public class LoginActivity extends MVPActivity<LoginContract.AbsPresenter> {
     Button btnLogin;
     @BindView(R.id.tv_serverSetting)
     TextView tvServerSetting;
-
+    public static void GoToActivity(Context context) {
+        context.startActivity(new Intent(context, LoginActivity.class));
+    }
     @Override
     protected LoginContract.AbsPresenter createPresenter() {
         return new LoginPresenter();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
@@ -123,11 +128,11 @@ public class LoginActivity extends MVPActivity<LoginContract.AbsPresenter> {
     private boolean isPassWordValid() {
         String password = etPassword.getText().toString();
         if (TextUtils.isEmpty(password)) {
-            ToastUtil.error(this, "密码不允许为空");
+            ToastUtil.warning(this, "密码不允许为空");
             etPassword.requestFocus();
             return false;
         } else if (password.length() < 6) {
-            ToastUtil.error(this, "密码长度最少为6位");
+            ToastUtil.warning(this, "密码长度最少为6位");
             etPassword.requestFocus();
             return false;
         } else {
@@ -138,11 +143,11 @@ public class LoginActivity extends MVPActivity<LoginContract.AbsPresenter> {
     private boolean isAccountValid() {
         String account = etAccount.getText().toString();
         if (TextUtils.isEmpty(account)) {
-            ToastUtil.error(this, "用户名不允许为空");
+            ToastUtil.warning(this, "用户名不允许为空");
             etAccount.requestFocus();
             return false;
         } else if (account.length() < 6) {
-            ToastUtil.error(this, "用户名长度最少为6位");
+            ToastUtil.warning(this, "用户名长度最少为6位");
             etAccount.requestFocus();
             return false;
         } else {
@@ -156,13 +161,14 @@ public class LoginActivity extends MVPActivity<LoginContract.AbsPresenter> {
             String account = etAccount.getText().toString();
             String password = etPassword.getText().toString();
             boolean isRememberPwd = cbRememberPwd.isChecked();
-            mPresenter.login(account, password, isRememberPwd);
+//            mPresenter.login(account, password, isRememberPwd);
+            MainActivity.GoToActivity(this);
         }
     }
 
     @OnClick(R.id.tv_serverSetting)
     public void onTvServerSettingClicked() {
-
+        ServerSettingActivity.GoToActivity(this);
     }
 }
 

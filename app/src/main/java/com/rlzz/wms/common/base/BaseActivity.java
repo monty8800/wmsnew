@@ -56,6 +56,12 @@ public abstract class BaseActivity extends AppCompatActivity implements EasyPerm
     protected void initToolBar() {
         ToolBarUtil.setStatusBarColor(this,getResources().getColor(R.color.app_azure));
         ToolBarUtil.setStatusBarFits(toolbar);
+        ToolBarUtil.setToolbarNavigation(toolbar, R.drawable.ic_icon_chevron_left, R.string.desc_back, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private void setupView(ViewGroup containerView) {

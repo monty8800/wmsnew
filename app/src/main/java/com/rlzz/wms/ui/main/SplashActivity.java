@@ -1,7 +1,6 @@
 package com.rlzz.wms.ui.main;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 
@@ -12,6 +11,7 @@ import com.rlzz.wms.App;
 import com.rlzz.wms.R;
 import com.rlzz.wms.common.base.BaseActivity;
 import com.rlzz.wms.core.RlPlugin;
+import com.rlzz.wms.ui.login.LoginActivity;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -85,20 +85,19 @@ public class SplashActivity extends BaseActivity {
                     @Override
                     public void onNext(PluginInfo pluginInfo) {
                         progressBar.setProgress(++index);
-                        LogUtil.d( "安装成功->" + pluginInfo.getName());
+                        LogUtil.d("安装成功->" + pluginInfo.getName());
                     }
 
                     @Override
                     public void onError(Throwable e) {
                         LogUtil.e(e.toString());
-                        ToastUtil.error(SplashActivity.this,"插件加载异常");
+                        ToastUtil.error(SplashActivity.this, "插件加载异常");
                     }
 
                     @Override
                     public void onComplete() {
-                        ToastUtil.success(SplashActivity.this,"插件加载完成");
-                        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                        startActivity(intent);
+                        ToastUtil.success(SplashActivity.this, "插件加载完成");
+                        LoginActivity.GoToActivity(SplashActivity.this);
                         finish();
                     }
                 });

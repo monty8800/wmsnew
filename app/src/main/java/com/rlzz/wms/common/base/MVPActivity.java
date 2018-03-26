@@ -21,7 +21,7 @@ public abstract class MVPActivity<P extends Presenter> extends BaseActivity {
     protected abstract P createPresenter();
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         mPresenter = createPresenter();
         mPresenter.attachView(this);
         super.onCreate(savedInstanceState);
