@@ -1,4 +1,4 @@
-package com.rlzz.library.net.utils;
+package com.rlzz.library.utils;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.DiskLogAdapter;

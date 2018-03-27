@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 import com.qihoo360.replugin.RePlugin;
 import com.qihoo360.replugin.model.PluginInfo;
+import com.rlzz.library.common.base.BaseActivity;
 import com.rlzz.wms.App;
 import com.rlzz.wms.R;
-import com.rlzz.wms.common.base.BaseActivity;
 import com.rlzz.wms.core.RlPlugin;
 
 import java.io.File;
@@ -44,8 +44,8 @@ public class TestActivity extends BaseActivity {
     @BindView(R.id.img)
     ImageView img;
 
-    public static void GoToActivity(Context context){
-        Intent intent = new Intent(context,TestActivity.class);
+    public static void GoToActivity(Context context) {
+        Intent intent = new Intent(context, TestActivity.class);
         context.startActivity(intent);
     }
 

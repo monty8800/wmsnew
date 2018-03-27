@@ -1,11 +1,5 @@
 package com.rlzz.wms.ui.login;
 
-import com.rlzz.library.net.RetrofitHelper;
-import com.rlzz.library.net.api.APIDemo;
-import com.rlzz.library.net.bean.ResultModel;
-
-import io.reactivex.Observable;
-
 /**
  * @author monty
  * @package com.rlzz.wms.ui.login
@@ -16,20 +10,20 @@ import io.reactivex.Observable;
  */
 
 public class LoginModelImpl implements LoginContract.Model {
-    private APIDemo service;
+    //    private APIDemo service;
     private LoginModelImpl() {
-        service = RetrofitHelper.getInstance().getService(APIDemo.class);
+//        service = RetrofitHelper.getInstance().getService(APIDemo.class);
     }
 
-    public static LoginContract.Model getInstance() {
-        return LoginContentModelHolder.INSTANCE;
-    }
+//    public static LoginContract.Model getInstance() {
+//        return LoginContentModelHolder.INSTANCE;
+//    }
 
-    private final static class LoginContentModelHolder {
-        private final static LoginContract.Model INSTANCE = new LoginModelImpl();
-    }
-    @Override
-    public Observable<ResultModel<String>> login(String account, String password) {
-        return service.getBlog(0);
-    }
+//    private final static class LoginContentModelHolder {
+//        private final static LoginContract.Model INSTANCE = new LoginModelImpl();
+//    }
+//    @Override
+//    public Observable<ResultModel<String>> login(String account, String password) {
+//        return service.getBlog(0);
+//    }
 }

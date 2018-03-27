@@ -1,4 +1,4 @@
-package com.rlzz.wms.utils;
+package com.rlzz.library.utils;
 
 import android.content.Context;
 

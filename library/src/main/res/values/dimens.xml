@@ -6,4 +6,13 @@
     <dimen name="margin_5dip">5dp</dimen>
     <dimen name="margin_10dip">10dp</dimen>
     <dimen name="margin_20dip">20dp</dimen>
+
+    <dimen name="font_huge_24">24sp</dimen>
+    <dimen name="font_bigger_22">22sp</dimen>
+    <dimen name="font_big_20">20sp</dimen>
+    <dimen name="font_larger_18">18sp</dimen>
+    <dimen name="font_large_16">16sp</dimen>
+    <dimen name="font_normal_14">14sp</dimen>
+    <dimen name="font_small_12">12sp</dimen>
+    <dimen name="font_tiny_10">10sp</dimen>
 </resources>

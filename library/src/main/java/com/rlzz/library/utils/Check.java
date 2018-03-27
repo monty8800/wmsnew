@@ -1,4 +1,4 @@
-package com.rlzz.wms.utils;
+package com.rlzz.library.utils;
 
 import java.util.Collection;
 import java.util.Map;

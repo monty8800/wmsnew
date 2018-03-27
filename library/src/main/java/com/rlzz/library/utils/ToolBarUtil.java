@@ -1,4 +1,4 @@
-package com.rlzz.wms.utils;
+package com.rlzz.library.utils;
 
 import android.app.Activity;
 import android.os.Build;
@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.rlzz.wms.R;
+import com.rlzz.library.R;
 
 
 /**

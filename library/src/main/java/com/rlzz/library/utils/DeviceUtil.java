@@ -1,4 +1,4 @@
-package com.rlzz.wms.utils;
+package com.rlzz.library.utils;
 
 import android.Manifest;
 import android.app.Activity;
@@ -59,7 +59,7 @@ public class DeviceUtil {
      * @return
      */
     public static String getBrandModel() {
-        return String.format("%1$s(%2$s)", android.os.Build.BRAND, android.os.Build.MODEL);
+        return String.format("%1$s(%2$s)", Build.BRAND, Build.MODEL);
     }
 
     /**

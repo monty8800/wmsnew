@@ -1,4 +1,4 @@
-package com.rlzz.wms.common;
+package com.rlzz.library.common;
 
 /**
  * 常量类

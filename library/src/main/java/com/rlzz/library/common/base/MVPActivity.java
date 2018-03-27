@@ -1,10 +1,10 @@
-package com.rlzz.wms.common.base;
+package com.rlzz.library.common.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.rlzz.wms.common.base.presenter.Presenter;
+import com.rlzz.library.common.base.presenter.Presenter;
 
 
 /**

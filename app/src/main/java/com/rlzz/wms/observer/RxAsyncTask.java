@@ -63,26 +63,39 @@ public abstract class RxAsyncTask<Param, Progress, Result> {
 
     protected abstract Result call(Param... params);
 
-    /**任务开始之前调用(在当前调用者所在线程执行)*/
+    /**
+     * 任务开始之前调用(在当前调用者所在线程执行)
+     */
     protected void onPreExecute() {
     }
 
-    /** 执行结果返回*/
+    /**
+     * 执行结果返回
+     */
     protected void onResult(Result result) {
     }
 
-    /**进度更新*/
+    /**
+     * 进度更新
+     */
     protected void onProgressUpdate(Progress... progresses) {
     }
 
-    /**RxJava中的onComplete回调*/
+    /**
+     * RxJava中的onComplete回调
+     */
     protected void onCompleted() {
     }
-    /**RxJava中的onError回调*/
+
+    /**
+     * RxJava中的onError回调
+     */
     protected void onError(Throwable e) {
     }
 
-    /**进度更新 子线程转主线程 回调给 onProgressUpdate()方法*/
+    /**
+     * 进度更新 子线程转主线程 回调给 onProgressUpdate()方法
+     */
     protected void publishProgress(final Progress... progresses) {
         if (mFlowable == null) {
             mFlowable = Flowable.create(new FlowableOnSubscribe<Progress[]>() {

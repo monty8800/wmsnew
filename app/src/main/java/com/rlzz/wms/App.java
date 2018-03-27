@@ -38,6 +38,7 @@ public class App extends RLApplication {
     public void onCreate() {
         super.onCreate();
         RePlugin.App.onCreate();
+//        HttpManager.getInstance().init(this);
     }
 
     @Override

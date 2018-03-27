@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.rlzz.wms.TestActivity">
+    tools:context="com.rlzz.wms.demo.TestActivity">
 
     <TextView
         android:id="@+id/text"

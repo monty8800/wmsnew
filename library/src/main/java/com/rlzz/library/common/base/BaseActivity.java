@@ -1,4 +1,4 @@
-package com.rlzz.wms.common.base;
+package com.rlzz.library.common.base;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,19 +10,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import com.rlzz.library.R;
+import com.rlzz.library.common.base.viewinterface.ILoading;
+import com.rlzz.library.common.base.viewinterface.IView;
 import com.rlzz.library.dialog.LoadingDialog;
 import com.rlzz.library.dialog.NiceDialogFactory;
-import com.rlzz.wms.R;
-import com.rlzz.wms.common.base.viewinterface.ILoading;
-import com.rlzz.wms.common.base.viewinterface.IView;
-import com.rlzz.wms.manager.ActivityStackManager;
-import com.rlzz.wms.utils.ToolBarUtil;
+import com.rlzz.library.manager.ActivityStackManager;
+import com.rlzz.library.utils.ToolBarUtil;
 
 import java.util.List;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import pub.devrel.easypermissions.EasyPermissions;
+
 
 /**
  * 基础Activity
@@ -38,7 +38,6 @@ public abstract class BaseActivity extends AppCompatActivity implements EasyPerm
 
     private static PermissionListener mPermissionListener;
 
-    @BindView(R.id.toolbar)
     protected Toolbar toolbar;
 
     @Override
@@ -48,7 +47,9 @@ public abstract class BaseActivity extends AppCompatActivity implements EasyPerm
         ActivityStackManager.getManager().push(this);
         setContentView(R.layout.activity_base);
         setupView(findViewById(R.id.container));
+
         ButterKnife.bind(this);
+        toolbar = findViewById(R.id.toolbar);
         initToolBar();
 
     }

@@ -1,7 +1,7 @@
 package com.rlzz.library.net;
 
 import com.rlzz.library.net.exception.ExceptionHandle;
-import com.rlzz.library.net.utils.LogUtil;
+import com.rlzz.library.utils.LogUtil;
 
 import org.reactivestreams.Publisher;
 

@@ -44,7 +44,17 @@ dependencies {
     compileOnly "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
     compileOnly "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
 
-    implementation 'com.github.GrenderG:Toasty:1.2.8'
+    /*Butterknife*/
+    api 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    /*google官方推出的开源项目EasyPermissions 来方便集成动态权限的功能。 */
+    api 'pub.devrel:easypermissions:1.1.3'
+
+    /*事件分发*/
+    api 'org.greenrobot:eventbus:3.1.1'
+
+    api 'com.github.GrenderG:Toasty:1.2.8'
 
     /*日志记录*/
     implementation 'com.orhanobut:logger:2.1.1'

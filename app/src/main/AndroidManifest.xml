@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".TestActivity"
+            android:name=".demo.TestActivity"
             android:exported="false"
             android:screenOrientation="landscape">
 
@@ -33,7 +33,6 @@
             </intent-filter>
             -->
         </activity>
-
         <activity
             android:name=".ui.main.SplashActivity"
             android:exported="false"
@@ -57,6 +56,13 @@
             android:name=".ui.login.ServerSettingActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+        <activity android:name=".demo.HttpDemoActivity">
+            <!-- <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>-->
+        </activity>
     </application>
 
 </manifest>

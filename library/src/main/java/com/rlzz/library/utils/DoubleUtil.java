@@ -1,4 +1,4 @@
-package com.rlzz.wms.utils;
+package com.rlzz.library.utils;
 
 /**
  * Created by monty on 2017/11/22.

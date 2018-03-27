@@ -1,4 +1,4 @@
-package com.rlzz.wms.manager;
+package com.rlzz.library.manager;
 
 import android.app.Service;
 import android.content.Intent;

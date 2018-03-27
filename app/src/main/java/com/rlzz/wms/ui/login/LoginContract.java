@@ -1,9 +1,7 @@
 package com.rlzz.wms.ui.login;
 
-import com.rlzz.library.net.bean.ResultModel;
-import com.rlzz.wms.common.base.presenter.Presenter;
 
-import io.reactivex.Observable;
+import com.rlzz.library.common.base.presenter.Presenter;
 
 /**
  * @author monty
@@ -24,6 +22,6 @@ public interface LoginContract {
     }
 
     interface Model {
-        Observable<ResultModel<String>> login(String account, String password);
+//        Observable<ResultModel<String>> login(String account, String password);
     }
 }

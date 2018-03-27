@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 
 import com.qihoo360.replugin.model.PluginInfo;
-import com.rlzz.library.net.utils.LogUtil;
+import com.rlzz.library.common.base.BaseActivity;
+import com.rlzz.library.utils.LogUtil;
 import com.rlzz.library.utils.ToastUtil;
 import com.rlzz.wms.App;
 import com.rlzz.wms.R;
-import com.rlzz.wms.common.base.BaseActivity;
 import com.rlzz.wms.core.RlPlugin;
 import com.rlzz.wms.ui.login.LoginActivity;
 
@@ -39,7 +39,6 @@ public class SplashActivity extends BaseActivity {
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +54,7 @@ public class SplashActivity extends BaseActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        LogUtil.d("externalFile -> " + (externalFile == null));
         progressBar.setMax(externalFile.length);
         String pluginFilePath = getFilesDir().getAbsolutePath() + File.separator;
         Observable
@@ -92,6 +92,7 @@ public class SplashActivity extends BaseActivity {
                     public void onError(Throwable e) {
                         LogUtil.e(e.toString());
                         ToastUtil.error(SplashActivity.this, "插件加载异常");
+
                     }
 
                     @Override

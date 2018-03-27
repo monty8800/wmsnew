@@ -1,4 +1,4 @@
-package com.rlzz.wms.common.base.viewinterface;
+package com.rlzz.library.common.base.viewinterface;
 
 /**
  * View 接口

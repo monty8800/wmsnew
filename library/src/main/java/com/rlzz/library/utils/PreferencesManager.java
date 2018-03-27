@@ -1,9 +1,9 @@
-package com.rlzz.wms.utils;
+package com.rlzz.library.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.rlzz.wms.App;
+import com.rlzz.library.RLApplication;
 
 
 /**
@@ -18,7 +18,7 @@ public class PreferencesManager {
 
 
     protected static SharedPreferences settings =
-            App.getInstance().getSharedPreferences(PREFERENCES_DEFAULT, Context.MODE_PRIVATE);
+            RLApplication.getInstance().getSharedPreferences(PREFERENCES_DEFAULT, Context.MODE_PRIVATE);
 
     private PreferencesManager() {
     }
@@ -37,12 +37,12 @@ public class PreferencesManager {
     }
 
     public static PreferencesManager getInstanceDefault() {
-        settings = App.getInstance().getSharedPreferences(PREFERENCES_DEFAULT, Context.MODE_PRIVATE);
+        settings = RLApplication.getInstance().getSharedPreferences(PREFERENCES_DEFAULT, Context.MODE_PRIVATE);
         return getInstances();
     }
 
     public static PreferencesManager getInstanceUser() {
-        settings = App.getInstance().getSharedPreferences(PREFERENCE_USER, Context.MODE_PRIVATE);
+        settings = RLApplication.getInstance().getSharedPreferences(PREFERENCE_USER, Context.MODE_PRIVATE);
         return getInstances();
     }
 

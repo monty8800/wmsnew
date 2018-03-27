@@ -2,7 +2,7 @@ package com.rlzz.library.net.interceptor;
 
 
 import com.rlzz.library.net.RetrofitHelper;
-import com.rlzz.library.net.utils.DeviceUtil;
+import com.rlzz.library.utils.DeviceUtil;
 
 import java.io.IOException;
 

@@ -7,7 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.google.gson.stream.MalformedJsonException;
-import com.rlzz.library.net.utils.JsonUtil;
+import com.rlzz.library.utils.JsonUtil;
 
 import org.json.JSONException;
 

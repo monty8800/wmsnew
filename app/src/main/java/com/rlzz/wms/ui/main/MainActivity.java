@@ -9,15 +9,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.qihoo360.replugin.model.PluginInfo;
+import com.rlzz.library.common.base.BaseActivity;
+import com.rlzz.library.manager.AppManager;
 import com.rlzz.library.utils.ToastUtil;
+import com.rlzz.library.utils.ToolBarUtil;
 import com.rlzz.wms.R;
-import com.rlzz.wms.TestActivity;
 import com.rlzz.wms.adapter.MenuAdapter;
-import com.rlzz.wms.common.base.BaseActivity;
 import com.rlzz.wms.core.RlPlugin;
+import com.rlzz.wms.demo.TestActivity;
 import com.rlzz.wms.entity.MenuItem;
-import com.rlzz.wms.manager.AppManager;
-import com.rlzz.wms.utils.ToolBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;

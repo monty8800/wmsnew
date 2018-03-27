@@ -1,4 +1,4 @@
-package com.rlzz.wms.common.base;
+package com.rlzz.library.common.base;
 
 import java.util.List;
 

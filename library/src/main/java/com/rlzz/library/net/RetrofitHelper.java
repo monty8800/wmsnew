@@ -7,8 +7,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.rlzz.library.net.interceptor.RequestInterceptor;
 import com.rlzz.library.net.interceptor.ResultInterceptor;
-import com.rlzz.library.net.utils.JsonUtil;
-import com.rlzz.library.net.utils.LogUtil;
+import com.rlzz.library.net.urlmanager.RetrofitUrlManager;
+import com.rlzz.library.utils.LogUtil;
+import com.rlzz.library.utils.JsonUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,7 +18,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
  * RetrofitHelper
@@ -31,11 +31,12 @@ public class RetrofitHelper {
     public final static int READ_TIMEOUT = 30;
     public final static int WRITE_TIMEOUT = 30;
 
-    public final static String SERVER_HOST_PRO = "http://www.baidu.com";
+    public final static String SERVER_HOST_PRO = "http://www.szrlzz.com";
 
     private ArrayMap<String, Object> services = new ArrayMap<>();
 
     private Retrofit retrofit;
+    private OkHttpClient okHttpClient;
 
     private static class RetrofitHelperHolder {
         private static RetrofitHelper instance = new RetrofitHelper();
@@ -47,16 +48,16 @@ public class RetrofitHelper {
 
     private RetrofitHelper() {
         Log.d("monty", "RetrofitHelper ################### init");
-        retrofit = createRetrofit(SERVER_HOST_PRO);
+        createOkHttpClient();
+        createRetrofit();
     }
 
-    public Retrofit createRetrofit(String baseUrl) {
-        retrofit = new Retrofit.Builder()
+    public Retrofit createRetrofit() {
+        this.retrofit = new Retrofit.Builder()
+                .baseUrl(SERVER_HOST_PRO)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//使用rxjava
+                .addConverterFactory(GsonConverterFactory.create(buildGson()))//使用Gson
                 .client(createOkHttpClient())
-                .baseUrl(baseUrl)
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(buildGson()))
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
         return retrofit;
     }
@@ -65,7 +66,7 @@ public class RetrofitHelper {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLogger());
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-        OkHttpClient client = new OkHttpClient.Builder()
+        this.okHttpClient = RetrofitUrlManager.getInstance().with(new OkHttpClient.Builder()) //RetrofitUrlManager 初始化
                 .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
@@ -74,7 +75,7 @@ public class RetrofitHelper {
                 .addNetworkInterceptor(new ResultInterceptor())
                 .addNetworkInterceptor(loggingInterceptor)
                 .build();
-        return client;
+        return okHttpClient;
     }
 
 
@@ -84,6 +85,13 @@ public class RetrofitHelper {
                 .create();
     }
 
+    public OkHttpClient getOkHttpClient() {
+        return okHttpClient;
+    }
+
+    public Retrofit getRetrofit() {
+        return retrofit;
+    }
 
     private class HttpLogger implements HttpLoggingInterceptor.Logger {
         private StringBuilder mMessage = new StringBuilder();
@@ -124,8 +132,4 @@ public class RetrofitHelper {
         services.put(serviceName, ser);
         return ser;
     }
-
-//    public synchronized API getAPIService() {
-//        return getService(API.class);
-//    }
 }

@@ -1,7 +1,7 @@
-package com.rlzz.wms.utils;
+package com.rlzz.library.utils;
 
 
-import com.rlzz.wms.App;
+import com.rlzz.library.RLApplication;
 
 /**
  * 尺寸单位转换
@@ -12,22 +12,22 @@ import com.rlzz.wms.App;
 public class DisplayUtil {
 
     public static int px2dp(float pxValue) {
-        float density = App.getInstance().getResources().getDisplayMetrics().density;//得到设备的密度
+        float density = RLApplication.getInstance().getResources().getDisplayMetrics().density;//得到设备的密度
         return (int) (pxValue / density + 0.5f);
     }
 
     public static int dp2px(float dpValue) {
-        float density = App.getInstance().getResources().getDisplayMetrics().density;
+        float density = RLApplication.getInstance().getResources().getDisplayMetrics().density;
         return (int) (dpValue * density + 0.5f);
     }
 
     public static int px2sp(float pxValue) {
-        float scaleDensity = App.getInstance().getResources().getDisplayMetrics().scaledDensity;//缩放密度
+        float scaleDensity = RLApplication.getInstance().getResources().getDisplayMetrics().scaledDensity;//缩放密度
         return (int) (pxValue / scaleDensity + 0.5f);
     }
 
     public static int sp2px(float spValue) {
-        float scaleDensity = App.getInstance().getResources().getDisplayMetrics().scaledDensity;
+        float scaleDensity = RLApplication.getInstance().getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * scaleDensity + 0.5f);
     }
 

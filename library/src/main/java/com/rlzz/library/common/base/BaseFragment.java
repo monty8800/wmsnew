@@ -1,4 +1,4 @@
-package com.rlzz.wms.common.base;
+package com.rlzz.library.common.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,11 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.rlzz.library.R;
+import com.rlzz.library.common.base.viewinterface.ILoading;
+import com.rlzz.library.common.base.viewinterface.IView;
 import com.rlzz.library.dialog.LoadingDialog;
 import com.rlzz.library.dialog.NiceDialogFactory;
-import com.rlzz.wms.R;
-import com.rlzz.wms.common.base.viewinterface.ILoading;
-import com.rlzz.wms.common.base.viewinterface.IView;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

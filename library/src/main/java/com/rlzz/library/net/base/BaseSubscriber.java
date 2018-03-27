@@ -6,7 +6,7 @@ import com.rlzz.library.R;
 import com.rlzz.library.RLApplication;
 import com.rlzz.library.net.bean.ResultModel;
 import com.rlzz.library.net.exception.ResponseException;
-import com.rlzz.library.net.utils.NetWork;
+import com.rlzz.library.utils.NetWork;
 import com.rlzz.library.utils.ToastUtil;
 
 import org.reactivestreams.Subscriber;

@@ -3,8 +3,8 @@ package com.rlzz.library.net.interceptor;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.rlzz.library.net.utils.JsonUtil;
-import com.rlzz.library.net.utils.LogUtil;
+import com.rlzz.library.utils.JsonUtil;
+import com.rlzz.library.utils.LogUtil;
 
 import java.io.EOFException;
 import java.io.IOException;

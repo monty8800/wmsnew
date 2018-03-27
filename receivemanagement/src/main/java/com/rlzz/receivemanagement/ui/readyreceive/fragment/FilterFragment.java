@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.rlzz.library.utils.LogUtil;
 import com.rlzz.receivemanagement.R;
 import com.rlzz.receivemanagement.common.base.BaseFragment;
 import com.rlzz.receivemanagement.entity.ReferenceBean;
@@ -31,7 +32,7 @@ import butterknife.Unbinder;
  * 筛选fragment
  */
 
-public class FilterFragment extends BaseFragment implements ReferenceFragment.OnSelectListener{
+public class FilterFragment extends BaseFragment implements ReferenceFragment.OnSelectListener {
     View root;
     @BindView(R.id.iv_myself)
     ImageView ivMyself;
@@ -107,8 +108,8 @@ public class FilterFragment extends BaseFragment implements ReferenceFragment.On
         return R.layout.fragment_drawerlayout_select;
     }
 
-    public static FilterFragment newInstance(){
-        FilterFragment filterFragment=new FilterFragment();
+    public static FilterFragment newInstance() {
+        FilterFragment filterFragment = new FilterFragment();
         return filterFragment;
     }
 
@@ -118,6 +119,7 @@ public class FilterFragment extends BaseFragment implements ReferenceFragment.On
         unbinder = ButterKnife.bind(this, rootView);
         initData();
         initView();
+        LogUtil.i("************ onDestroyView() ************");
         return rootView;
     }
 
@@ -188,6 +190,7 @@ public class FilterFragment extends BaseFragment implements ReferenceFragment.On
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        LogUtil.i("************ onDestroyView() ************");
         unbinder.unbind();
     }
 
@@ -195,16 +198,16 @@ public class FilterFragment extends BaseFragment implements ReferenceFragment.On
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_startTime:
-                CommonUtil.showDateSelectDialog(getActivity(),tvStartTime);
+                CommonUtil.showDateSelectDialog(getActivity(), tvStartTime);
                 break;
             case R.id.tv_endTime:
-                CommonUtil.showDateSelectDialog(getActivity(),tvEndTime);
+                CommonUtil.showDateSelectDialog(getActivity(), tvEndTime);
                 break;
             case R.id.rl_depart:
-                reference("部门",true);
+                reference("部门", true);
                 break;
             case R.id.rl_maker:
-                reference("制单人",false);
+                reference("制单人", false);
                 break;
             case R.id.tv_reset:
                 break;
@@ -213,26 +216,25 @@ public class FilterFragment extends BaseFragment implements ReferenceFragment.On
         }
     }
 
-    private void reference(String title,boolean hasAll) {
-        FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
-        ReferenceFragment referenceFragment=ReferenceFragment.newInstance(this);
-        FragmentTransaction transaction=fragmentManager.beginTransaction();
-        Bundle bundle=new Bundle();
-        bundle.putString("title",title);//标题
-        bundle.putString("url","");//获取数据的路径
-        bundle.putBoolean("hasAll",hasAll);//控制是否可以显示全部选择的条目
+    private void reference(String title, boolean hasAll) {
+        FragmentManager fragmentManager = getFragmentManager();
+        ReferenceFragment referenceFragment = ReferenceFragment.newInstance(this);
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putString("title", title);//标题
+        bundle.putString("url", "");//获取数据的路径
+        bundle.putBoolean("hasAll", hasAll);//控制是否可以显示全部选择的条目
         referenceFragment.setArguments(bundle);
-//        transaction.add(referenceFragment,"reference");
         transaction.addToBackStack(null);
-        transaction.replace(R.id.fl_drawerContent,referenceFragment).commitAllowingStateLoss();
+        transaction.add(R.id.fl_drawerContent, referenceFragment).commitAllowingStateLoss();
     }
 
 
     @Override
     public void selectItem(boolean selectAll, ReferenceBean referenceBean) {
-        if(selectAll){
+        if (selectAll) {
             tvDepartName.setText("全部");
-        }else{
+        } else {
             tvDepartName.setText(referenceBean.getCommonInfoBean().getArcName());
         }
     }

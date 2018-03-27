@@ -1,4 +1,4 @@
-package com.rlzz.wms.manager;
+package com.rlzz.library.manager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Build;
 
 import com.rlzz.library.RLApplication;
-import com.rlzz.wms.App;
 
 
 /**
@@ -30,7 +29,7 @@ public class AppManager {
         /**使用非Activity的Context启动Activity需要添加FLAG_ACTIVITY_NEW_TASK，
          * 否则会抛异常Calling startActivity() from outside of an Activity  context requires the FLAG_ACTIVITY_NEW_TASK flag.*/
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        App.getInstance().startActivity(intent);
+        RLApplication.getInstance().startActivity(intent);
     }
 
     /**
