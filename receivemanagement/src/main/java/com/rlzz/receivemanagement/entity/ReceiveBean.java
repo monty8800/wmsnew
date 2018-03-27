@@ -59,6 +59,16 @@ public class ReceiveBean {
             private String title;
             //启动新的插件的flag
             private String flag;
+            //插件ACTIVITY路径
+            private String activity;
+
+            public String getActivity() {
+                return activity;
+            }
+
+            public void setActivity(String activity) {
+                this.activity = activity;
+            }
 
             public String getPosition() {
                 return position;
