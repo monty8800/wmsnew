@@ -24,8 +24,6 @@
         android:layout_height="200dp"
         android:background="@android:color/holo_red_dark" />-->
 
-    <include
-        layout="@layout/title_bar"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_receive"
         android:layout_width="match_parent"

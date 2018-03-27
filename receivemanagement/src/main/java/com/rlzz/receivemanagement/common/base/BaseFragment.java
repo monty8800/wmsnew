@@ -30,7 +30,7 @@ public abstract class BaseFragment extends Fragment implements IView, ILoading {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_blank, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_base, container, false);
         contentView = rootView.findViewById(R.id.container);
         contentView.addView(inflater.inflate(getContentLayoutId(), null, false));
         unbinder = ButterKnife.bind(this, rootView);

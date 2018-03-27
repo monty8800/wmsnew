@@ -22,4 +22,8 @@
     <color name="tip_green">#00ff00</color>
 
     <color name="rest_time">#ff0000</color>
+
+    <color name="separate_line">#cccccc</color>
+
+    <color name="select_bg">#F2F2F2</color>
 </resources>

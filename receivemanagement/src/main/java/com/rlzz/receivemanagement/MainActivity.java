@@ -1,5 +1,6 @@
 package com.rlzz.receivemanagement;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -53,45 +54,52 @@ public class MainActivity extends BaseActivity {
                 "\t\t\t\"position\":\"1\",\n" +
                 "\t\t\t\"tips\":\"25\",\n" +
                 "\t\t\t\"title\":\"收货1\",\n" +
-                "\t\t\t\"flag\":\"ready_enter\"\n" +
+                "\t\t\t\"flag\":\"ready_enter\",\n" +
+                "\t\t\t\"activity\":\"\"\n" +
                 "\t\t},\n" +
                 "\t\t{\n" +
                 "\t\t\t\"position\":\"\",\n" +
                 "\t\t\t\"tips\":\"\",\n" +
                 "\t\t\t\"title\":\"\",\n" +
-                "\t\t\t\"flag\":\"ready_enter\"\n" +
+                "\t\t\t\"flag\":\"ready_enter\",\n" +
+                "\t\t\t\"activity\":\"\"\n" +
                 "\t\t},\n" +
                 "\t\t{\n" +
                 "\t\t\t\"position\":\"1\",\n" +
                 "\t\t\t\"tips\":\"25\",\n" +
                 "\t\t\t\"title\":\"收货2\",\n" +
-                "\t\t\t\"flag\":\"ready_enter\"\n" +
+                "\t\t\t\"flag\":\"ready_enter\",\n" +
+                "\t\t\t\"activity\":\"\"\n" +
                 "\t\t}\n" +
                 "\t]},{\"header\":\"制单\",\n" +
                 "\t    \"content\":[{\n" +
                 "\t\t\t\"position\":\"1\",\n" +
                 "\t\t\t\"tips\":\"25\",\n" +
                 "\t\t\t\"title\":\"收货3\",\n" +
-                "\t\t\t\"flag\":\"ready_enter\"\n" +
+                "\t\t\t\"flag\":\"ready_enter\",\n" +
+                "\t\t\t\"activity\":\"\"\n" +
                 "\t\t},\n" +
                 "\t\t{\n" +
                 "\t\t\t\"position\":\"1\",\n" +
                 "\t\t\t\"tips\":\"25\",\n" +
                 "\t\t\t\"title\":\"收货4\",\n" +
-                "\t\t\t\"flag\":\"ready_enter\"\n" +
+                "\t\t\t\"flag\":\"ready_enter\",\n" +
+                "\t\t\t\"activity\":\"\"\n" +
                 "\t\t}\n" +
                 "\t]},{\"header\":\"ERP单据审核\",\n" +
                 "\t    \"content\":[{\n" +
                 "\t\t\t\"position\":\"1\",\n" +
                 "\t\t\t\"tips\":\"25\",\n" +
                 "\t\t\t\"title\":\"收货5\",\n" +
-                "\t\t\t\"flag\":\"ready_enter\"\n" +
+                "\t\t\t\"flag\":\"ready_enter\",\n" +
+                "\t\t\t\"activity\":\"\"\n" +
                 "\t\t},\n" +
                 "\t\t{\n" +
                 "\t\t\t\"position\":\"1\",\n" +
                 "\t\t\t\"tips\":\"25\",\n" +
                 "\t\t\t\"title\":\"收货6\",\n" +
-                "\t\t\t\"flag\":\"ready_enter\"\n" +
+                "\t\t\t\"flag\":\"ready_enter\",\n" +
+                "\t\t\t\"activity\":\"\"\n" +
                 "\t\t}\n" +
                 "\t]}]\n" +
                 "}\n";
@@ -118,8 +126,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 //判断是否是头部
-                if (!datas.get(position).isHeader && !datas.get(position).t.getTitle().equals(""))
+                if (!datas.get(position).isHeader && !datas.get(position).t.getTitle().equals("")){
                     Toast.makeText(MainActivity.this, datas.get(position).t.getTitle(), Toast.LENGTH_SHORT).show();
+                    Intent readyReceiveIntent=new Intent();
+                    readyReceiveIntent.setAction("ready_enter");
+                    startActivity(readyReceiveIntent);
+                }
             }
         });
         rvReceive.setAdapter(receiveAdapter);
