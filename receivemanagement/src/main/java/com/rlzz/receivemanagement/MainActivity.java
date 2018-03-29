@@ -2,27 +2,30 @@ package com.rlzz.receivemanagement;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.rlzz.base.uitls.ToastUtil;
+import com.rlzz.library.event.LoginEvent;
+import com.rlzz.library.utils.EventBusUtil;
 import com.rlzz.receivemanagement.adapter.ReceiveAdapter;
 import com.rlzz.receivemanagement.common.base.BaseActivity;
 import com.rlzz.receivemanagement.entity.ReceiveBean;
 import com.rlzz.receivemanagement.entity.ReceiveSection;
 import com.rlzz.receivemanagement.utils.JsonUtil;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
@@ -42,8 +45,21 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
 //        ButterKnife.bind(this);
+        EventBusUtil.register(this);
         initData();
         initView();
+    }
+
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void onLoginEventListener(LoginEvent loginEvent) {
+//        LogUtil.d("插件接收Event loginEvent->" + loginEvent);
+        ToastUtil.info(this, "插件接收Event loginEvent->" + loginEvent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBusUtil.unregister(this);
     }
 
     private void initData() {

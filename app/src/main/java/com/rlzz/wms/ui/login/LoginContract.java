@@ -1,7 +1,7 @@
 package com.rlzz.wms.ui.login;
 
 
-import com.rlzz.library.common.base.presenter.Presenter;
+import com.rlzz.base.common.base.presenter.Presenter;
 
 /**
  * @author monty

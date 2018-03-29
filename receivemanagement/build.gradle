@@ -53,6 +53,10 @@ dependencies {
     //这个jar就是从Support-fragment中提取出来的并非特制包目的是为了骗过编译期
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
+    implementation project(':base')
+    compileOnly files('../core/library.jar')
+    /*事件分发*/
+    compileOnly 'org.greenrobot:eventbus:3.1.1'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.qihoo360.replugin:replugin-plugin-lib:2.2.4'
@@ -60,7 +64,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     /*BRVAH是一个强大的RecyclerAdapter框架*/
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.35'
-    implementation project(':library')
+//    implementation project(':library')
     implementation "com.android.support:support-annotations:$rootProject.ext.supportVersion"
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
     implementation "com.android.support:recyclerview-v7:$rootProject.ext.supportVersion"

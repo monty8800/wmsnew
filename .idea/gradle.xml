@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/base" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/receivemanagement" />
             <option value="$PROJECT_DIR$/replugin-host-lib" />

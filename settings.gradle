@@ -1,1 +1,1 @@
-include ':app', ':replugin-host-lib',':library', ':receivemanagement'
+include ':app', ':replugin-host-lib',':library', ':receivemanagement', ':base'

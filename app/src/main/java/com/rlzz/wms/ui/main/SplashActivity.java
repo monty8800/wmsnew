@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 
 import com.qihoo360.replugin.model.PluginInfo;
-import com.rlzz.library.common.base.BaseActivity;
+import com.rlzz.base.common.base.BaseActivity;
+import com.rlzz.base.uitls.ToastUtil;
 import com.rlzz.library.utils.LogUtil;
-import com.rlzz.library.utils.ToastUtil;
 import com.rlzz.wms.App;
 import com.rlzz.wms.R;
 import com.rlzz.wms.core.RlPlugin;

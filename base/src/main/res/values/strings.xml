@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">library</string>
+    <string name="toast_network_error">网络故障,请检查网络连接是否正常</string>
+    <string name="desc_back">返回</string>
+</resources>

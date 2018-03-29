@@ -2,12 +2,10 @@ package com.rlzz.library.net.base;
 
 import android.util.Log;
 
-import com.rlzz.library.R;
 import com.rlzz.library.RLApplication;
 import com.rlzz.library.net.bean.ResultModel;
 import com.rlzz.library.net.exception.ResponseException;
 import com.rlzz.library.utils.NetWork;
-import com.rlzz.library.utils.ToastUtil;
 
 import io.reactivex.observers.ResourceObserver;
 
@@ -25,7 +23,7 @@ public abstract class BaseObserver<T> extends ResourceObserver<ResultModel<T>> {
     @Override
     public void onNext(ResultModel<T> value) {
         if (!NetWork.isConnected(RLApplication.getInstance())) {
-            ToastUtil.warning(RLApplication.getInstance(),RLApplication.getInstance().getString(R.string.toast_network_error));
+//            ToastUtil.warning(RLApplication.getInstance(),RLApplication.getInstance().getString(R.string.toast_network_error));
             onFinish();
             return;
         }
@@ -74,7 +72,7 @@ public abstract class BaseObserver<T> extends ResourceObserver<ResultModel<T>> {
      * @param ex
      */
     protected void onFailure(Exception ex) {
-        ToastUtil.error(RLApplication.getInstance(),ex.getMessage());
+//        ToastUtil.error(RLApplication.getInstance(),ex.getMessage());
     }
 
     /**

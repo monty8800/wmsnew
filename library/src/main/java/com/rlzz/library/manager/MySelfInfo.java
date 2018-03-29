@@ -2,7 +2,6 @@ package com.rlzz.library.manager;
 
 import android.text.TextUtils;
 
-import com.rlzz.library.common.Constants;
 import com.rlzz.library.utils.PreferencesManager;
 
 import java.util.List;

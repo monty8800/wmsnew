@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.qihoo360.replugin.RePlugin;
 import com.qihoo360.replugin.model.PluginInfo;
-import com.rlzz.wms.common.base.BaseActivity;
+import com.rlzz.base.common.base.BaseActivity;
 import com.rlzz.wms.core.RlPlugin;
 
 import java.io.File;

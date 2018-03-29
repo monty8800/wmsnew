@@ -23,7 +23,7 @@
         <activity
             android:name=".demo.TestActivity"
             android:exported="false"
-            android:screenOrientation="landscape">
+            android:screenOrientation="portrait">
 
             <!--
             <intent-filter>

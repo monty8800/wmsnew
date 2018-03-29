@@ -9,10 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.qihoo360.replugin.model.PluginInfo;
-import com.rlzz.library.common.base.BaseActivity;
+import com.rlzz.base.common.base.BaseActivity;
+import com.rlzz.base.uitls.ToastUtil;
+import com.rlzz.base.uitls.ToolBarUtil;
 import com.rlzz.library.manager.AppManager;
-import com.rlzz.library.utils.ToastUtil;
-import com.rlzz.library.utils.ToolBarUtil;
 import com.rlzz.wms.R;
 import com.rlzz.wms.adapter.MenuAdapter;
 import com.rlzz.wms.core.RlPlugin;
@@ -78,7 +78,6 @@ public class MainActivity extends BaseActivity {
             if (!menuItem.isHeader) {
                 PluginInfo pl = menuItem.t;
                 RlPlugin.launchPlugin(this, pl.getName());
-                ToastUtil.info(this,menuItem.t.getAppLabel().toString());
             }
         });
         return menuAdapter;

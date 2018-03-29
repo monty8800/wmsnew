@@ -2,12 +2,10 @@ package com.rlzz.library.net.base;
 
 import android.util.Log;
 
-import com.rlzz.library.R;
 import com.rlzz.library.RLApplication;
 import com.rlzz.library.net.bean.ResultModel;
 import com.rlzz.library.net.exception.ResponseException;
 import com.rlzz.library.utils.NetWork;
-import com.rlzz.library.utils.ToastUtil;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
@@ -28,7 +26,7 @@ public abstract class BaseSubscriber<T> implements Subscriber<ResultModel<T>> {
         Log.d(TAG, "onSubscribe");
         if (!NetWork.isConnected(RLApplication.getInstance())) {
             s.cancel();
-            ToastUtil.warning(RLApplication.getInstance(),RLApplication.getInstance().getString(R.string.toast_network_error));
+//            ToastUtil.warning(RLApplication.getInstance(),RLApplication.getInstance().getString(R.string.toast_network_error));
             onFinish();
         }
     }
@@ -80,7 +78,7 @@ public abstract class BaseSubscriber<T> implements Subscriber<ResultModel<T>> {
      * @param ex
      */
     protected void onFailure(Exception ex) {
-        ToastUtil.error(RLApplication.getInstance(),ex.getMessage());
+//        ToastUtil.error(RLApplication.getInstance(),ex.getMessage());
     }
 
     /**

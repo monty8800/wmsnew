@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.rlzz.library.dialog.LoadingDialog;
-import com.rlzz.library.dialog.NiceDialogFactory;
+import com.rlzz.base.dialog.LoadingDialog;
+import com.rlzz.base.dialog.NiceDialogFactory;
 import com.rlzz.receivemanagement.R;
 import com.rlzz.receivemanagement.common.base.viewinterface.ILoading;
 import com.rlzz.receivemanagement.common.base.viewinterface.IView;
