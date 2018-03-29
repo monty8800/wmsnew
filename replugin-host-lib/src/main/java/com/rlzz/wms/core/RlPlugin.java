@@ -226,11 +226,7 @@ public class RlPlugin {
         try {
             //使用插件的Classloader获取指定Fragment实例
             fragment = d1ClassLoader.loadClass(fragmentClass).asSubclass(Fragment.class).newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (InstantiationException | ClassNotFoundException | IllegalAccessException e) {
             e.printStackTrace();
         }
         return fragment;

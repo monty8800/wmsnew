@@ -32,6 +32,7 @@ import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -69,7 +70,10 @@ public class LoginActivity extends MVPActivity<LoginContract.AbsPresenter> {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
-        toolbar.setVisibility(View.GONE);
+        setContentView(R.layout.activity_login);
+
+        ButterKnife.bind(this);
+//        toolbar.setVisibility(View.GONE);
 
         setDateInitialValue();
 
@@ -110,10 +114,10 @@ public class LoginActivity extends MVPActivity<LoginContract.AbsPresenter> {
         ToastUtil.warning(this, "权限申请失败");
     }
 
-    @Override
-    public int getContentLayoutId() {
-        return R.layout.activity_login;
-    }
+//    @Override
+//    public int getContentLayoutId() {
+//        return R.layout.activity_login;
+//    }
 
     @OnClick(R.id.et_date)
     public void onEtDateClicked() {

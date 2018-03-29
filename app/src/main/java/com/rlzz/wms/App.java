@@ -31,7 +31,7 @@ public class App extends RLApplication {
             c.setCallbacks(cb);
         }
 
-        RePlugin.App.attachBaseContext(this);
+        RePlugin.App.attachBaseContext(this, c);
     }
 
     @Override

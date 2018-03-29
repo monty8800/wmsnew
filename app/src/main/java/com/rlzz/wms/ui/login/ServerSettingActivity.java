@@ -8,12 +8,12 @@ import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.rlzz.library.common.base.BaseActivity;
 import com.rlzz.library.utils.PreferencesManager;
 import com.rlzz.library.utils.RegexUtils;
 import com.rlzz.library.utils.ToastUtil;
 import com.rlzz.library.utils.ToolBarUtil;
 import com.rlzz.wms.R;
+import com.rlzz.wms.base.BaseToolBarActivity;
 import com.rlzz.wms.entity.ServerData;
 
 import java.util.Arrays;
@@ -31,7 +31,7 @@ import io.reactivex.Observable;
  * @org www.szrlzz.com 深圳市瑞联智造科技有限公司
  * @email mwu@szrlzz.com
  */
-public class ServerSettingActivity extends BaseActivity {
+public class ServerSettingActivity extends BaseToolBarActivity {
 
     @BindView(R.id.et_protocol)
     EditText etProtocol;

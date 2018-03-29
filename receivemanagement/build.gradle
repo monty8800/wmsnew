@@ -39,12 +39,12 @@ repluginPluginConfig {
     //宿主app的包名
     hostApplicationId = "com.rlzz.wms"
     //宿主app的启动activity
-    hostAppLauncherActivity = "com.rlzz.receivemanagement.MainActivity"
+    hostAppLauncherActivity = "com.rlzz.wms.ui.main.MainActivity"
 }
 
 dependencies {
 //    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation("com.android.support:appcompat-v7:$rootProject.ext.supportVersion"){
+    implementation("com.android.support:appcompat-v7:$rootProject.ext.supportVersion") {
         exclude(group: 'com.android.support', module: 'support-v4')
     }
     implementation "com.android.support:recyclerview-v7:$rootProject.ext.supportVersion"
@@ -60,10 +60,10 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     /*BRVAH是一个强大的RecyclerAdapter框架*/
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.35'
-    implementation project(':library')
+//    implementation project(':library')
+    compileOnly files('../core/library.jar')
+    compileOnly 'org.greenrobot:eventbus:3.1.1'
     implementation "com.android.support:support-annotations:$rootProject.ext.supportVersion"
-    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
-    implementation "com.android.support:recyclerview-v7:$rootProject.ext.supportVersion"
 
     implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.converterGsonVersion"
@@ -79,11 +79,10 @@ dependencies {
 }
 
 
-task copyApk(type: Copy) {
+task copyApk(type: Copy, dependsOn: ['build']) {
     from('build/outputs/apk/debug/receivemanagement-debug.apk')
     into('../app/src/main/assets/external')
     ///Rename the aar
     rename('receivemanagement-debug.apk', 'plugin-receivemanagement-debug.apk')
 }
-
 copyApk.dependsOn(build)
