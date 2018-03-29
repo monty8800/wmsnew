@@ -6,6 +6,9 @@ import android.net.Uri;
 import android.os.Build;
 
 import com.rlzz.library.RLApplication;
+import com.rlzz.library.event.OutLoginListener;
+
+import java.util.LinkedList;
 
 
 /**
@@ -15,21 +18,34 @@ import com.rlzz.library.RLApplication;
 
 public class AppManager {
     public interface Action {
-        String LOGIN = "com.rlzz.uwinmes.action.LOGIN";
+        String LOGIN = "com.rlzz.wms.action.LOGIN";
+    }
+
+    private final static LinkedList<OutLoginListener> outLoginListenerSparseArray = new LinkedList<>();
+
+    public static void addOutLoginListener(OutLoginListener outLoginListener) {
+        outLoginListenerSparseArray.add(outLoginListener);
     }
 
     /**
      * 隐式启动登录页面
      */
     public static void startLoginActivity() {
-        ActivityStackManager.getManager().finishAllActivity();
-        Intent intent = new Intent();
+
+//        ActivityStackManager.getManager().finishAllActivity();
+        for (int i = 0; i < outLoginListenerSparseArray.size(); i++) {
+            outLoginListenerSparseArray.get(i).onOutLoginEvent();
+        }
+        /*for (OutLoginListener outLoginListener : outLoginListenerSparseArray) {
+            outLoginListener.onOutLoginEvent();
+        }*/
+        /*Intent intent = new Intent();
         intent.setAction(Action.LOGIN);
         intent.addCategory(Intent.CATEGORY_DEFAULT);
-        /**使用非Activity的Context启动Activity需要添加FLAG_ACTIVITY_NEW_TASK，
-         * 否则会抛异常Calling startActivity() from outside of an Activity  context requires the FLAG_ACTIVITY_NEW_TASK flag.*/
+        *//**使用非Activity的Context启动Activity需要添加FLAG_ACTIVITY_NEW_TASK，
+         * 否则会抛异常Calling startActivity() from outside of an Activity  context requires the FLAG_ACTIVITY_NEW_TASK flag.*//*
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        RLApplication.getInstance().startActivity(intent);
+        RLApplication.getInstance().startActivity(intent);*/
     }
 
     /**
@@ -42,7 +58,6 @@ public class AppManager {
             AppManager.startLoginActivity();
         }
     }*/
-
     public static void goToAppDetailSettingIntent(Context context) {
         Intent localIntent = new Intent();
         localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -85,7 +100,7 @@ public class AppManager {
         restartAPP(context, 2000);
     }
 
-    public static void exitApp(){
+    public static void exitApp() {
         ActivityStackManager.getManager().exitApp(RLApplication.getInstance());
     }
 

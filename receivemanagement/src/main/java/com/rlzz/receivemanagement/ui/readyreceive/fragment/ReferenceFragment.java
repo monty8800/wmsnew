@@ -1,6 +1,5 @@
 package com.rlzz.receivemanagement.ui.readyreceive.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentManager;
@@ -14,15 +13,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ajguan.library.EasyRefreshLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.rlzz.library.common.base.BaseFragment;
 import com.rlzz.receivemanagement.R;
 import com.rlzz.receivemanagement.adapter.ReferenceAdapter;
-import com.rlzz.receivemanagement.common.base.BaseFragment;
 import com.rlzz.receivemanagement.entity.CommonInfoBean;
-import com.rlzz.receivemanagement.entity.ReadyReceiveBean;
 import com.rlzz.receivemanagement.entity.ReferenceBean;
 
 import java.util.ArrayList;
@@ -231,6 +228,6 @@ public class ReferenceFragment extends BaseFragment {
 
     //选择之后的监听器
     public interface OnSelectListener {
-        public void selectItem(boolean selectAll, ReferenceBean referenceBean);
+        void selectItem(boolean selectAll, ReferenceBean referenceBean);
     }
 }

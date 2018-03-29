@@ -9,7 +9,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -19,9 +18,9 @@ import android.widget.Toast;
 
 import com.ajguan.library.EasyRefreshLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.rlzz.library.common.base.BaseActivity;
 import com.rlzz.receivemanagement.R;
 import com.rlzz.receivemanagement.adapter.ReadyReceiveAdapter;
-import com.rlzz.receivemanagement.common.base.BaseActivity;
 import com.rlzz.receivemanagement.entity.ReadyReceiveBean;
 import com.rlzz.receivemanagement.ui.readyreceive.fragment.FilterFragment;
 
@@ -56,14 +55,15 @@ public class ReadyReceiveActivity extends BaseActivity {
     @BindView(R.id.rl_select)
     RelativeLayout rlSelect;
 
-    @Override
-    public int getContentLayoutId() {
-        return R.layout.activity_ready_receive;
-    }
+//    @Override
+//    public int getContentLayoutId() {
+//        return R.layout.activity_ready_receive;
+//    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ready_receive);
         initData();
         initView();
     }

@@ -9,12 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.qihoo360.replugin.model.PluginInfo;
-import com.rlzz.library.common.base.BaseActivity;
 import com.rlzz.library.manager.AppManager;
 import com.rlzz.library.utils.ToastUtil;
 import com.rlzz.library.utils.ToolBarUtil;
 import com.rlzz.wms.R;
 import com.rlzz.wms.adapter.MenuAdapter;
+import com.rlzz.wms.base.BaseToolBarActivity;
 import com.rlzz.wms.core.RlPlugin;
 import com.rlzz.wms.demo.TestActivity;
 import com.rlzz.wms.entity.MenuItem;
@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 import io.reactivex.functions.Consumer;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseToolBarActivity {
 
     private RecyclerView recyclerView;
     private List<MenuItem> menuItems;
@@ -69,6 +69,7 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
+
     }
 
     private MenuAdapter getMenuAdapter(/*int index,RecyclerView recyclerView*/) {
@@ -78,7 +79,6 @@ public class MainActivity extends BaseActivity {
             if (!menuItem.isHeader) {
                 PluginInfo pl = menuItem.t;
                 RlPlugin.launchPlugin(this, pl.getName());
-                ToastUtil.info(this,menuItem.t.getAppLabel().toString());
             }
         });
         return menuAdapter;
@@ -115,7 +115,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public int getContentLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.activity_app_main;
     }
 
     @Override

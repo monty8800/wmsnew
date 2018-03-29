@@ -12,9 +12,11 @@ import android.widget.Toast;
 
 import com.qihoo360.replugin.RePlugin;
 import com.qihoo360.replugin.model.PluginInfo;
-import com.rlzz.library.common.base.BaseActivity;
+import com.rlzz.library.event.LoginEvent;
+import com.rlzz.library.utils.EventBusUtil;
 import com.rlzz.wms.App;
 import com.rlzz.wms.R;
+import com.rlzz.wms.base.BaseToolBarActivity;
 import com.rlzz.wms.core.RlPlugin;
 
 import java.io.File;
@@ -30,7 +32,7 @@ import io.reactivex.Observable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-public class TestActivity extends BaseActivity {
+public class TestActivity extends BaseToolBarActivity {
     @BindView(R.id.button)
     Button button;
     @BindView(R.id.text)
@@ -41,6 +43,8 @@ public class TestActivity extends BaseActivity {
     Button button3;
     @BindView(R.id.button4)
     Button button4;
+    @BindView(R.id.button5)
+    Button button5;
     @BindView(R.id.img)
     ImageView img;
 
@@ -109,6 +113,11 @@ public class TestActivity extends BaseActivity {
         /*Intent intent = new Intent(this, com.rlzz.wms.ui.main.MainActivity.class);
         startActivity(intent);*/
 
+    }
+
+    @OnClick(R.id.button5)
+    public void onButton5Clicked() {
+        EventBusUtil.postSticky(new LoginEvent(LoginEvent.INIT_EVENT));
     }
 
     private void initAllBundle() {

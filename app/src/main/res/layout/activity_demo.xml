@@ -30,23 +30,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="打开插件Activity" />
+
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="卸载所有插件" />
+
     <Button
         android:id="@+id/button4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="WMS首页" />
 
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="执行插件中的代码" />
+
     <FrameLayout
         android:id="@+id/framelayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/app_azure"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@color/app_azure">
+
         <ImageView
             android:id="@+id/img"
             android:layout_width="match_parent"

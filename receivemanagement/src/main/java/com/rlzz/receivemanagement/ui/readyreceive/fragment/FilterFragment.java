@@ -11,9 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.rlzz.library.common.base.BaseFragment;
 import com.rlzz.library.utils.LogUtil;
 import com.rlzz.receivemanagement.R;
-import com.rlzz.receivemanagement.common.base.BaseFragment;
 import com.rlzz.receivemanagement.entity.ReferenceBean;
 import com.rlzz.receivemanagement.entity.ViewGroupBean;
 import com.rlzz.receivemanagement.utils.CommonUtil;

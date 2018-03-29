@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 
 import com.qihoo360.replugin.model.PluginInfo;
-import com.rlzz.library.common.base.BaseActivity;
 import com.rlzz.library.utils.LogUtil;
 import com.rlzz.library.utils.ToastUtil;
 import com.rlzz.wms.App;
 import com.rlzz.wms.R;
+import com.rlzz.wms.base.BaseToolBarActivity;
 import com.rlzz.wms.core.RlPlugin;
 import com.rlzz.wms.ui.login.LoginActivity;
 
@@ -34,7 +34,7 @@ import io.reactivex.schedulers.Schedulers;
  * @author monty
  * @date 2018/03/22
  */
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends BaseToolBarActivity {
 
     @BindView(R.id.progressBar)
     ProgressBar progressBar;

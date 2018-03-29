@@ -23,7 +23,7 @@
         <activity
             android:name=".demo.TestActivity"
             android:exported="false"
-            android:screenOrientation="landscape">
+            android:screenOrientation="portrait">
 
             <!--
             <intent-filter>
@@ -51,7 +51,12 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.rlzz.wms.action.LOGIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.login.ServerSettingActivity"
             android:exported="false"
